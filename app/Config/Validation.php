@@ -46,7 +46,7 @@ class Validation
                 'required' => 'Node desciption field is required.'
             ]
         ],
-        
+
     ];
 
     public $role = [
@@ -73,7 +73,7 @@ class Validation
                 'required' => 'Landing Page field is required.'
             ]
         ],
-        
+
     ];
 
 	public $user = [
@@ -138,7 +138,7 @@ class Validation
                 'required' => 'Role field is required.'
             ]
         ],
-        
+
     ];
 
     public $user_edit = [
@@ -182,7 +182,7 @@ class Validation
                 'matches' => 'Password Retype field must match password.'
             ]
         ],
-        
+
         'birthdate' => [
             'label'  => 'Birthdate',
             'rules'  => 'required',
@@ -197,7 +197,16 @@ class Validation
                 'required' => 'Role field is required.'
             ]
         ],
-        
+
+    ];
+		public $semester = [
+        'name' => [
+            'label'  => 'Semester Name',
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Semester Name field is required.'
+            ]
+        ],
     ];
 
 	//--------------------------------------------------------------------
