@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Controllers;
 
 //use App\Database\Seeds;
@@ -40,11 +40,12 @@ class Migrate extends \CodeIgniter\Controller
 
     public function seeder()
     {
-        // die("here");
-        $seeder = \Config\Database::seeder();
-        $seeder->call('RolesSeeder'); 
-        $seeder->call('UsersSeeder'); 
-        $seeder->call('ModuleSeeder'); 
-        $seeder->call('PermissionSeeder'); 
-    } 
+      //  die("here");
+       $seeder = \Config\Database::seeder();
+       // $seeder->call('RolesSeeder');
+       // $seeder->call('UsersSeeder');
+       // $seeder->call('ModuleSeeder');
+       // $seeder->call('PermissionSeeder');
+      $seeder->call('PermissionCollegeSeeder');
+    }
 }

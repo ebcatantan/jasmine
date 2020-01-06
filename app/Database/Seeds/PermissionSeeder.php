@@ -2,7 +2,7 @@
 
 class PermissionSeeder extends \CodeIgniter\Database\Seeder
 {
-        public $table = 'permissions'; 
+        public $table = 'permissions';
 
         public function run()
         {
@@ -191,7 +191,7 @@ class PermissionSeeder extends \CodeIgniter\Database\Seeder
                         'page_title' => 'roles permissions',
                         'module_id' => '1',
                          'link_icon' => '<i class="fas fa-shield-alt"></i>',
-                        'order' => '12',                        
+                        'order' => '12',
                         'table_name' => 'permissions',
                         'func_action' => 'link',
                         'func_type' => 1,
@@ -207,7 +207,7 @@ class PermissionSeeder extends \CodeIgniter\Database\Seeder
                         'page_title' => 'edit role perission',
                         'module_id' => '1',
                         'link_icon' => '',
-                        'order' => '13',                        
+                        'order' => '13',
                         'table_name' => 'permissions',
                         'func_action' => 'link',
                         'func_type' => 4,
