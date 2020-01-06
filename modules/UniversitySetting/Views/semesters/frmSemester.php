@@ -14,7 +14,7 @@
       <div class="col-md-6 offset-md-3">
           <div class="form-group ">
               <label for="name">Name</label>
-              <input type="text" name="name" class="form-control" value="<?= isset($rec['name']) ? $rec['name'] : '' ?>">
+              <input type="text" placeholder="Semester/Period" name="name" class="form-control" value="<?= isset($rec['name']) ? $rec['name'] : '' ?>">
               <?php if ($errors['name']): ?>
                 <div class="text-danger">
                   <?= $errors['name'] ?>

@@ -25,7 +25,7 @@
         <th scope="row"><?= $cnt++ ?></th>
         <!-- <td><?php echo "Jayson" ?></td> -->
         <td><?= ucwords($semester['name']) ?></td>
-        <td><?= ucwords($semester['status']) ?></td>
+        <td style="text-align: center;"><?= ucwords($semester['status']) ?></td>
         <td class="text-center">
           <?php
             users_action('semesters', $_SESSION['userPermmissions'], $semester['id']);
