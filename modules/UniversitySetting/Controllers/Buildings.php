@@ -115,7 +115,6 @@ class Buildings extends BaseController
 		    {
 		    	if($model->edit($_POST, $id))
 		        {
-		        	$permissions_model->update_permitted_building($id, $_POST['function_id'], $data['rec']['function_id']);
 		        	$_SESSION['success'] = 'You have updated a record';
 							$this->session->markAsFlashdata('success');
 		        	return redirect()->to(base_url('buildings'));

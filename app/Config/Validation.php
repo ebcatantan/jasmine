@@ -223,6 +223,40 @@ class Validation
 						]
 				],
 			];
+
+		public $room =[
+			'building_id' => [
+				'label' => 'Building Code',
+				'rules' => 'required',
+				'errors' => [
+					'required' => 'Building Code field is required'
+				]
+			],
+
+			'room_name' => [
+				'label' => 'Building Code',
+				'rules' => 'required',
+				'errors' => [
+					'required' => 'Room Name field is required'
+				]
+			],
+
+			'room_code' => [
+				'label' => 'Room Code',
+				'rules' => 'required',
+				'errors' => [
+					'required' => 'Room Code field is required'
+				]
+			],
+
+			'description' => [
+				'label' => 'Description',
+				'rules' => 'required',
+				'errors' => [
+					'required' => 'Description fields is required'
+				]
+			]
+		];
 	//--------------------------------------------------------------------
 	// Rules
 	//--------------------------------------------------------------------
