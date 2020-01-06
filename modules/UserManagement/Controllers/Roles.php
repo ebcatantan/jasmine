@@ -143,7 +143,6 @@ class Roles extends BaseController
     public function delete_role($id)
     {
     	$this->hasPermissionRedirect('delete-role');
-
     	$model = new RolesModel();
     	$model->deleteRole($id);
     }

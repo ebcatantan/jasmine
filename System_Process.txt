@@ -1,46 +1,58 @@
 First Time use of System (Data Building)
-1. CRUD ng Building
-2. CRUD ng Rooms
-3. CRUD ng Colleges
-4. CRUD ng Department
-5. CRUD ng Employees
-6. CRUD ng Subjects
+1. CRUD ng Building - Jerome
+2. CRUD ng Rooms - Marcus
+3. CRUD ng Colleges - Timo
+4. CRUD ng Department - CJ
+5. CRUD ng Employees - Laude
+6. CRUD ng Subjects - Choi
+
+
+Meriel/Harvey/Jerome
 7. CRUD ng Curriculums
 8. Maglalagay ng Curriculum Subjects sa Curriculums (pipili sa subjects)
 9. Maglalagay ng Curriculum Subject Prerequesites sa Curriculum Subjects (pipili sa Curriculum Subjects)
 10. Maglalagay ng Curriculum Subject Equivalance sa Curriculum Subjects (pipili sa Curriculum Subjects ng ibang Curriculum)
+
+Froi/Sol/Dacs
 11. Student Profiling
 	- CRUD ng Students
 	- Paglalagay Student Profiling Details sa Student
 12. Input ng grades for subjects taken (if possible)
 
+Dacs/Larz/Jamie
 Steps in Pre-Enrollment Period
-1. Maglologin ang admin para gumawa ng academic year. 
+1. Maglologin ang admin para gumawa ng academic year.
 2. Kapag nakagawa na ng academic year, gagawa naman ang admin ng academic year instance para sa active na academic year. Ito ang magsisilbing palatandaan ng system na magsisimula na ang panibagong sem ng isang school year
-3. Iseset ng admin ang start at end ng enrollment 
+3. Iseset ng admin ang start at end ng enrollment
 
+Jillian/Quiel/Timo
 (first Sem)
 3. Iseset ng admin kung mag-aaccept na ng examinee academic year
-4. Gagawa ng exam schedule ang admin kapag nakaset nang magaccept ng examinee
+4. Gagawa ng exam schedule ang n kapag nakaset nang magaccept ng examinee
 5. iseset ng admin ang exam passing score
 
+
+Apura/Edmon/Gabito
 (start of sem)
-6. Create Sections 
+6. Create Sections
 7. Create Subject Offerings para sa bawat Section (sa paggagawa ng subject offering, may button lang na icliclick ang admin or registrar tapos icocopy na ang subjects mula sa active na curriculum para ilagay sa subject offerings)
 8. Maglalagay ng Schedule sa bawat Subject Offerings
 9. Magtatag ng professor na maghahandle ng subject offerings
 
+jerome/lyka
 Steps in old student enrollment (regular / walang bagsak na subject na may prerequisites)
 1. Ichecheck ng system kung block sectioning ba, kung block section, ipapakita ng system ang section na dapat enrollan ng student na nakalogin
 2. Kapag click ng enroll button ay icocopy ng system ang subject offerings ng section at dadalhin ito sa student enrolled subjects
 3. Kapag hindi block sectioning, ipapakita ang ibang section na available, pwede na ulit gawin ang step 2
 
+timo/mitch/lenard
 Steps old students enrollment (irregular)
 1. System will check if irregular student can enroll as regular
 2. If can enroll as regular, system will check if enrollment is blok sectioning
 3. If block sectioning, system will get the section code of the student from his student profiling details
 4. GO to Steps in enrollment for old student regular
 5. Kung irregular at hindi pwedeng magenroll ng regular, ipapakita ng system ang lahat ng subject offerings na pwede itake ng student (ichecheck ang subject na hindi pa nakukuha ng student at ichecheck kung available sa mga subject offerings)
+
 
 Steps After Enlistment
 1. Pupunta sa guidance office, ichechecck ng guidance kung cleared
@@ -49,8 +61,9 @@ Steps After Enlistment
 4. Pupunta sa student services para sa validation at renewal of ID if needed
 5. Punta sa registrar for claims of registration card
 
-Steps for incoming Freshmen Enrollment
 
+jillian/timo/gabito/Apura
+Steps for incoming Freshmen Enrollment
 1. Open na ang system para application ng mga examinee. (profilling/adding ng examinee #lagyan ito ng capcha para hindi pasukan ng bot)
 2. Ang system na ang magbibigay ng schedule ng exam ng examinee, random na pipili ang system sa mga active exam schedule (make sure na balance ang bilang nga mga examinee bawat schedule)
 3. After ng exam, iinput ng user ang result score ng examinee
@@ -63,6 +76,7 @@ Steps for incoming Freshmen Enrollment
 10. Makakapagenroll ang student kung sakaling nakaset na ang enrollment
 12. Ichecheck ng system kung block sectioning ba, kung block section, ipapakita ng system ang section na dapat enrollan ng student na nakalogin
 12. Kapag click ng enroll button ay icocopy ng system ang subject offerings ng section at dadalhin ito sa student enrolled subjects
+
 
 STUDENT INTERFACE NOTES:
 1. Notification para sa details ng enrollemnt
@@ -79,7 +93,3 @@ After at During Enrollment
 		-ilan ang mga babae at lalaki per course
 		-ilan ang daily enrollment statistics
 		-student enrollment total per barangay (local colleges ang universities)
-
-
-
-
