@@ -11,7 +11,7 @@ class Security extends BaseController
 		{
 			$loginOK = 0;
 			$users = $model->getUserWithCondition(['username' => $_POST['username']]);
-			
+
 			//checking of user existense
 			if(!empty($users))
 			{
@@ -24,7 +24,7 @@ class Security extends BaseController
 						$_SESSION['uname'] = $user['username'];
 						$_SESSION['rid'] = $user['role_id'];
 						$_SESSION['user_logged_in'] = 1;
-						break;						
+						break;
 					}
 				}
 			}

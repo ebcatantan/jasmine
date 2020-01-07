@@ -25,7 +25,6 @@ class Buildings extends BaseController
     	//kailangan ito para sa pagination
      	$data['all_items'] = $model->get([],[],['status'=> 'a'],[]);
      	$data['offset'] = $offset;
-
 			$fields = [];
 			$tables = [];
 			$conditions = [];

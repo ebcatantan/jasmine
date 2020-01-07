@@ -79,7 +79,7 @@ class BuildingsPermissionSeeder extends \CodeIgniter\Database\Seeder
                         'page_title' => 'delete building account',
                         'module_id' => '2',
                         'link_icon' => '',
-                        'order' => 17,
+                        'order' => 18,
                         'table_name' => 'buildings',
                         'func_action' => 'delete',
                         'func_type' => 3,
