@@ -199,6 +199,15 @@ class Validation
         ],
 
     ];
+		public $semester = [
+        'name' => [
+            'label'  => 'Semester Name',
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Semester Name field is required.'
+            ]
+        ],
+    ];
 
 		public $building = [
 				'building_code' => [

@@ -79,4 +79,4 @@ defined('EXIT__AUTO_MAX')      || define('EXIT__AUTO_MAX', 125); // highest auto
 
 defined('SYSTEM_NAME') || define('SYSTEM_NAME', 'JASMINE');
 defined('SYSTEM_TITLE') || define('SYSTEM_TITLE', 'JASMINE');
-defined('PERPAGE') || define('PERPAGE', 2);
+defined('PERPAGE') || define('PERPAGE', 5);

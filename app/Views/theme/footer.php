@@ -8,7 +8,7 @@
       <div class="row">
         <div class="col-md-12">
           <i class="fab fa-creative-commons"></i>
-          <p id="developer">Developed by H Training and Solutions Engineering Center</p>
+          <p id="developer">Developed by IT Training and Solutions Engineering Center</p>
           <p id="copy-statement">
             Except where otherwise noted, content on this site is licensed under a Creative Commons Attribution 4.0 International license. Icons by The Noun Project.
           </p>
