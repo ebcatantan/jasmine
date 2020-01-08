@@ -49,6 +49,8 @@ class Migrate extends \CodeIgniter\Controller
         $seeder->call('BuildingsPermissionSeeder');
         $seeder->call('RoomsPermissionSeeder');
         $seeder->call('SemesterSeeder');
+        $seeder->call('PermissionCollegeSeeder');
+
 
     }
 }
