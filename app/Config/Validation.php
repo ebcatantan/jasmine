@@ -46,7 +46,7 @@ class Validation
                 'required' => 'Node desciption field is required.'
             ]
         ],
-        
+
     ];
 
     public $role = [
@@ -73,7 +73,7 @@ class Validation
                 'required' => 'Landing Page field is required.'
             ]
         ],
-        
+
     ];
 
 	public $user = [
@@ -138,7 +138,7 @@ class Validation
                 'required' => 'Role field is required.'
             ]
         ],
-        
+
     ];
 
     public $user_edit = [
@@ -182,7 +182,7 @@ class Validation
                 'matches' => 'Password Retype field must match password.'
             ]
         ],
-        
+
         'birthdate' => [
             'label'  => 'Birthdate',
             'rules'  => 'required',
@@ -197,8 +197,53 @@ class Validation
                 'required' => 'Role field is required.'
             ]
         ],
-        
+
     ];
+		public $subject = [
+	        'subject_code' => [
+	            'label'  => 'Subject Code',
+	            'rules'  => 'required',
+	            'errors' => [
+	                'required' => 'Subject Code field is required.',
+	            ]
+	        ],
+					'subject_title' => [
+	            'label'  => 'Subject Title',
+	            'rules'  => 'required',
+	            'errors' => [
+	                'required' => 'Subject Title field is required.',
+	            ]
+	        ],
+					'description' => [
+	            'label'  => 'Description',
+	            'rules'  => 'required',
+	            'errors' => [
+	                'required' => 'Description field is required.',
+	            ]
+	        ],
+					'units' => [
+	            'label'  => 'Units',
+	            'rules'  => 'required',
+	            'errors' => [
+	                'required' => 'Units field is required.',
+	            ]
+					],
+					'lecture_hour' => [
+	            'label'  => 'Lecture_hour',
+	            'rules'  => 'required',
+	            'errors' => [
+	                'required' => 'Lecture_hour field is required.',
+	            ]
+					],
+					'lab_hour' => [
+							'label'  => 'Lab_hour',
+							'rules'  => 'required',
+							'errors' => [
+									'required' => 'Lab_hour field is required.',
+							]
+					],
+	    ];
+
 
 	//--------------------------------------------------------------------
 	// Rules
