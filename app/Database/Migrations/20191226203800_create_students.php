@@ -130,12 +130,12 @@ class CreateStudents extends \CodeIgniter\Database\Migration {
                         'mother_name' => [
                                 'type'           => 'TEXT',
                         ],
-                        
+
                         'mother_occupation' => [
                                 'type'           => 'TEXT',
                         ],
 
-                        'guadian' => [
+                        'guardian' => [
                                 'type'           => 'TEXT',
                         ],
 
@@ -169,7 +169,7 @@ class CreateStudents extends \CodeIgniter\Database\Migration {
                                 'constraint'     => '1',
                                 'default'        => 'a'
                         ],
-                        
+
                         'created_at' => [
                                 'type'           => 'DATETIME',
                                 'comment'        => 'Date of creation',
