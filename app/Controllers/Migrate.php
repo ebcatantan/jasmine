@@ -38,19 +38,19 @@ class Migrate extends \CodeIgniter\Controller
         }
     }
 
-    public function seeder()
-    {
-        // die("here");
-        $seeder = \Config\Database::seeder();
-        $seeder->call('RolesSeeder');
-        $seeder->call('UsersSeeder');
-        $seeder->call('ModuleSeeder');
-        $seeder->call('PermissionSeeder');
-        $seeder->call('BuildingsPermissionSeeder');
-        $seeder->call('RoomsPermissionSeeder');
-        $seeder->call('SemesterSeeder');
-        $seeder->call('PermissionCollegeSeeder');
-
-
-    }
+    // public function seeder()
+    // {
+    //     // die("here");
+    //     $seeder = \Config\Database::seeder();
+    //     $seeder->call('RolesSeeder');
+    //     $seeder->call('UsersSeeder');
+    //     $seeder->call('ModuleSeeder');
+    //     $seeder->call('PermissionSeeder');
+    //     $seeder->call('BuildingsPermissionSeeder');
+    //     $seeder->call('RoomsPermissionSeeder');
+    //     $seeder->call('SemesterSeeder');
+    //     $seeder->call('PermissionCollegeSeeder');
+    //
+    //
+    // }
 }

@@ -12,11 +12,20 @@ $routes->group('semesters', ['namespace' => 'Modules\UniversitySetting\Controlle
 $routes->group('buildings', ['namespace' => 'Modules\UniversitySetting\Controllers'], function($routes)
 {
     $routes->get('/', 'Buildings::index');
-    $routes->match(['get', 'post'], 'add', 'Buildings::add_building');
+    $routes->match(['get', 'post'], 'add', 'Buildings::add_course');
     $routes->get('(:num)', 'Buildings::index/$1');
-    $routes->get('show/(:num)', 'Buildings::show_building/$1');
-    $routes->match(['get', 'post'], 'edit/(:num)', 'Buildings::edit_building/$1');
+    $routes->get('show/(:num)', 'Buildings::show_course/$1');
+    $routes->match(['get', 'post'], 'edit/(:num)', 'Buildings::edit_course/$1');
     $routes->delete('delete/(:num)', 'Buildings::delete_building/$1');
+});
+$routes->group('courses', ['namespace' => 'Modules\UniversitySetting\Controllers'], function($routes)
+{
+    $routes->get('/', 'Courses::index');
+    $routes->match(['get', 'post'], 'add', 'Courses::add_course');
+    $routes->get('(:num)', 'Courses::index/$1');
+    $routes->get('show/(:num)', 'Courses::show_course/$1');
+    $routes->match(['get', 'post'], 'edit/(:num)', 'Courses::edit_course/$1');
+    $routes->delete('delete/(:num)', 'Courses::delete_course/$1');
 });
 
 $routes->group('rooms', ['namespace' => 'Modules\UniversitySetting\Controllers'], function($routes)
@@ -37,4 +46,14 @@ $routes->group('colleges', ['namespace' => 'Modules\UniversitySetting\Controller
     $routes->match(['get', 'post'], 'add', 'Colleges::add_college');
     $routes->match(['get', 'post'], 'edit/(:num)', 'Colleges::edit_college/$1');
     $routes->delete('delete/(:num)', 'Colleges::delete_college/$1');
+});
+
+$routes->group('subjects', ['namespace' => 'Modules\UniversitySetting\Controllers'], function($routes)
+{
+    $routes->get('/', 'Subjects::index');
+    $routes->match(['get', 'post'], 'add', 'Subjects::add_subject');
+    $routes->get('(:num)', 'Subjects::index/$1');
+    $routes->get('show/(:num)', 'Subjects::show_subject/$1');
+    $routes->match(['get', 'post'], 'edit/(:num)', 'Subjects::edit_subject/$1');
+    $routes->delete('delete/(:num)', 'Subjects::delete_subject/$1');
 });

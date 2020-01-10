@@ -3,7 +3,7 @@
       search here
    </div>
    <div class="col-md-2">
-    <?php user_add_link('users', $_SESSION['userPermmissions']) ?>
+    <?php user_add_link('subjects', $_SESSION['userPermmissions']) ?>
    </div>
  </div>
 <br>
@@ -11,9 +11,9 @@
  <div class="table-responsive">
    <table class="table table-bordered">
     <thead class="thead-dark">
-      <tr align="center">
+      <tr class="text-center">
         <th>#</th>
-        <th>Subject Code</th>
+        <th>Subject code</th>
         <th>Subject title</th>
         <th>Description</th>
         <th>Action</th>
@@ -21,16 +21,16 @@
     </thead>
     <tbody>
       <?php $cnt = 1; ?>
-      <?php foreach($users as $user): ?>
-      <tr id="<?php echo $user['id']; ?>">
+      <?php foreach($subjects as $subject): ?>
+      <tr id="<?php echo $subject['id']; ?>">
         <th scope="row"><?= $cnt++ ?></th>
-        <td><?= $user['firstname'].' '.$user['lastname'] ?></td>
-        <td><?= $user['username'] ?></td>
-        <td><?= $user['email'] ?></td>
+        <td><?= ($subject['subject_code']) ?></td>
+        <td><?= ($subject['subject_title']) ?></td>
+        <td><?= ($subject['description']) ?></td>
         <td class="text-center">
-         <?php
-            users_action('users', $_SESSION['userPermmissions'], $user['id']);
-         ?>
+          <?php
+            users_action('subjects', $_SESSION['userPermmissions'], $subject['id']);
+          ?>
         </td>
       </tr>
       <?php endforeach; ?>
@@ -38,8 +38,9 @@
   </table>
  </div>
 <hr>
+
 <div class="row">
   <div class="col-md-6 offset-md-6">
-    <?php paginater('users', count($all_items), PERPAGE, $offset) ?>
+    <?php paginater('subjects', count($all_items), PERPAGE, $offset) ?>
   </div>
 </div>

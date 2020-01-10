@@ -24,10 +24,9 @@ class Colleges extends BaseController
     	$model = new CollegesModel();
 
     	//kailangan ito para sa pagination
-       	$data['all_items'] = $model->getCollegeWithCondition(['status'=> 'a']);
+       	$data['all_items'] = $model->get([],[],['status'=> 'a'],[]);
        	$data['offset'] = $offset;
-
-        $data['colleges'] = $model->getCollegeWithFunction(['status'=> 'a', 'limit' => PERPAGE, 'offset' =>  $offset]);
+        $data['colleges'] = $model->get([],[],['status'=> 'a'],['limit' => PERPAGE, 'offset' =>  $offset]);
 
         $data['function_title'] = "Colleges List";
         $data['viewName'] = 'Modules\UniversitySetting\Views\colleges\index';

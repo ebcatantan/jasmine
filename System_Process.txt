@@ -27,7 +27,7 @@ Steps in Pre-Enrollment Period
 
 Jillian/Quiel/Timo
 (first Sem)
-3. Iseset ng admin kung mag-aaccept na ng examinee academic year
+3. Iseset ng admin kung mag-aaccept na ng examinee mic year
 4. Gagawa ng exam schedule ang n kapag nakaset nang magaccept ng examinee
 5. iseset ng admin ang exam passing score
 

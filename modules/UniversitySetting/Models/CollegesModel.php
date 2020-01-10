@@ -9,32 +9,30 @@ class CollegesModel extends \CodeIgniter\Model
 
     protected $allowedFields = ['college_code','description','other_notes','status', 'created_at','updated_at', 'deleted_at'];
 
-    public function getCollegeWithCondition($conditions = [])
-	{
-		foreach($conditions as $field => $value)
-		{
-			$this->where($field, $value);
-		}
-	    return $this->findAll();
-	}
+    public function get($fields = [], $tables = [], $conditions = [], $args = [])
+    {
+      $this->select('colleges.*');
+      foreach ($fields as $table => $field) {
+        $this->select($field . '.' . $tables);
+      }
 
-	public function getCollegeWithFunction($args = [])
-	{
-		$db = \Config\Database::connect();
+      foreach ($tables as $a => $array) {
+        foreach ($array as $fk => $id) {
+          $this->join($a, $fk .'='. $id);
+        }
+      }
 
-    $str = "SELECT *  FROM colleges WHERE status = '".$args['status']."' LIMIT ". $args['offset'] .','.$args['limit'];
-  // print_r($str); die();
-  $query = $db->query($str);
+      foreach($conditions as $field => $value) {
+        $this->where($field, $value);
+      }
 
+      if (!empty($args)) {
+        return $this->findAll($args['limit'], $args['offset']);
+      }
 
-		// print_r($query->getResultArray()); die();
-	    return $query->getResultArray();
-	}
+      return $this->findAll();
+    }
 
-    public function getColleges()
-	{
-	    return $this->findAll();
-	}
     public function addCollege($val_array = [])
 	{
 
