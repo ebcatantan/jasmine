@@ -34,10 +34,10 @@ class PermissionsModel extends \CodeIgniter\Model
 	{
 
 		$function = $this->find($function_id);
-		
+
 		if($prev_function_id == 0)
 		{
-			$str = str_replace(']', ','.$role_id.']', $function['allowed_roles']); 
+			$str = str_replace(']', ','.$role_id.']', $function['allowed_roles']);
 			$val_array['allowed_roles'] = $str;
 			return $this->update($function_id, $val_array);
 		}
@@ -57,12 +57,12 @@ class PermissionsModel extends \CodeIgniter\Model
 		if($prev_function_id != 0 && $prev_function_id != $function_id)
 		{
 
-			$str = str_replace(']', ','.$role_id.']', $function['allowed_roles']); 
+			$str = str_replace(']', ','.$role_id.']', $function['allowed_roles']);
 			$val_array['allowed_roles'] = $str;
 			$this->update($function_id, $val_array);
 
 			$function_prev = $this->find($prev_function_id);
-			$str = str_replace(','.$role_id, '', $function_prev['allowed_roles']); 
+			$str = str_replace(','.$role_id, '', $function_prev['allowed_roles']);
 			$val_array_prev['allowed_roles'] = $str;
 			return $this->update($prev_function_id, $val_array_prev);
 		}

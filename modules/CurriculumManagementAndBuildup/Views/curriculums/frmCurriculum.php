@@ -29,7 +29,11 @@
             <div class="col-md-6 offset-md-3">
               <div class="form-group">
                 <label for="course_id">Course</label>
-                <textarea name="course_id" type="text" class="form-control <?= $errors['course_id'] ? 'is-invalid':'is-valid'  ?>" id="course_id" placeholder="course_id" rows="5"><?= isset($rec['course_id']) ? $rec['course_id'] : set_value('course_id') ?></textarea>
+                <select name="course_id" type="text" class="form-control <?= $errors['course_id'] ? 'is-invalid':'is-valid'  ?>" id="course_id">
+                  <?php foreach ($courses as $course): ?>
+                    <option value="<?=$course['id']?>"><?=$course['course_title']?></option>
+                  <?php endforeach; ?>
+                </select>
                 <?php if($errors['course_id']): ?>
                     <div class="invalid-feedback">
                       <?= $errors['course_id'] ?>

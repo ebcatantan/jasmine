@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace Modules\UserManagement\Models;
 
 use CodeIgniter\Model;
@@ -21,11 +21,11 @@ class RolesModel extends \CodeIgniter\Model
 	public function getRoleWithFunction($args = [])
 	{
 		$db = \Config\Database::connect();
-		
+
 		$str = "SELECT a.*, b.function_name FROM roles a LEFT JOIN permissions b ON a.function_id = b.id WHERE a.status = '".$args['status']."' LIMIT ". $args['offset'] .','.$args['limit'];
 		// print_r($str); die();
 		$query = $db->query($str);
-		
+
 		// print_r($query->getResultArray()); die();
 	    return $query->getResultArray();
 	}

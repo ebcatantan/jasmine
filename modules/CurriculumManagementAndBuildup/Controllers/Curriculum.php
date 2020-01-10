@@ -2,6 +2,7 @@
 namespace Modules\CurriculumManagementAndBuildup\Controllers;
 
 use Modules\CurriculumManagementAndBuildup\Models\CurriculumModel;
+use Modules\UniversitySetting\Models\CoursesModel;
 use Modules\UserManagement\Models\PermissionsModel;
 use App\Controllers\BaseController;
 
@@ -53,7 +54,8 @@ class Curriculum extends BaseController
     	$this->hasPermissionRedirect('add-curriculum');
 
     	$permissions_model = new PermissionsModel();
-
+			$courses_model = new CoursesModel();
+			$data['courses'] = $courses_model->get([],[],['status' => 'a'],[]);
     	$data['permissions'] = $this->permissions;
 
     	helper(['form', 'url']);
@@ -101,7 +103,8 @@ class Curriculum extends BaseController
     	helper(['form', 'url']);
     	$model = new CurriculumModel();
     	$data['rec'] = $model->find($id);
-
+			$courses_model = new CoursesModel();
+			$data['courses'] = $courses_model->get([],[],['status' => 'a'],[]);
     	$permissions_model = new PermissionsModel();
 
     	$data['permissions'] = $this->permissions;
