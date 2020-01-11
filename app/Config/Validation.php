@@ -206,7 +206,7 @@ class Validation
             'errors' => [
                 'required' => 'Semester Name field is required.'
             ]
-        ],
+        ]
     ];
 
 	//--------------------------------------------------------------------

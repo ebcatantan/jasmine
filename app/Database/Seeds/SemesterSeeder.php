@@ -8,6 +8,22 @@ class SemesterSeeder extends \CodeIgniter\Database\Seeder
         {
                 $data = [
                     [
+                      'function_name' => 'show semester details',
+                      'function_description' => 'show semester details',
+                      'slugs' => 'show_semester_detail',
+                      'name_on_class' => 'show_semester_detail',
+                      'page_title' => 'semester details',
+                      'module_id' => '2',
+                       'link_icon' => '',
+                      'order' => '2',
+                      'table_name' => 'semesters',
+                      'func_action' => 'show',
+                      'func_type' => 3,
+                      'allowed_roles' => "[1]",
+                      'status' => 'a',
+                      'created_at' => date('Y-m-d H:i:s')
+                    ],
+                    [
                         'name_on_class' => 'list_of_semester',
                         'function_name' => 'list of semester',
                         'function_description' => 'list of semester',

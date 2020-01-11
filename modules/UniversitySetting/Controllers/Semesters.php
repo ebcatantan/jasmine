@@ -34,19 +34,19 @@ class Semesters extends BaseController
         echo view('App\Views\theme\index', $data);
     }
 
-    public function show_semester($id)
-	{
-		$this->hasPermissionRedirect('show-semester-details');
-		$data['permissions'] = $this->permissions;
+		public function show_semester($id)
+		{
+				$this->hasPermissionRedirect('show_semester_detail');
+				$data['permissions'] = $this->permissions;
 
-		$model = new SemestersModel();
+				$model = new SemestersModel();
 
-		$data['semester'] = $model->getSemesterWithCondition(['id' => $id]);
+				$data['semesters'] = $model->getSemesterWithCondition(['id' => $id]);
 
-		$data['function_title'] = "Semester Details";
-        $data['viewName'] = 'Modules\UniversitySetting\Views\semester\semesterDetails';
+				$data['function_title'] = "Semester Details";
+        $data['viewName'] = 'Modules\UniversitySetting\Views\semesters\semesterDetails';
         echo view('App\Views\theme\index', $data);
-	}
+		}
 
     public function add_semester()
     {
