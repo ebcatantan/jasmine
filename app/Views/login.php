@@ -11,14 +11,14 @@
     <link rel="stylesheet" href="<?= base_url() ?>/public/css/style.css">
     <title><?= SYSTEM_TITLE ?></title>
   </head>
-  
-	<body>
-	  <div class="container">
+
+	<body id = "bg-login">
+	  <div class="container" id = "login-container">
 	    <div class="row">
 	      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-	        <div class="card card-signin my-5">
-	          <div class="card-body">
-	            <h2 class="card-title text-center"><i class="fas fa-unlock-alt"></i> User Login</h2>
+	        <div class="card card-signin my-5" id = "login-card">
+	          <div class="card-body" id="login-card-body">
+	            <h2 class="card-title text-center"><img class ="img-fluid" id = "jasmine-logo" src ="<?= base_url() ?>/public/img/logo.png"></h2>
 	            <hr>
 	            <?php if(isset($_SESSION['error_login'])): ?>
 	            <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -29,28 +29,38 @@
 				</div>
 				<?php endif; ?>
 	            <form class="form-signin" method="post" action="<?= base_url() ?>">
-	              <div class="form-label-group">
-	                <label for="inputUsername">Username</label>
-	                <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+                <div class="form-label-group mb-2 mt-4">
+                  <!-- <label for="inputUsername">Username</label> -->
+                  <div class="input-group">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text border border-success edited"><i class="fas fa-user-circle"></i></div>
+                      </div>
+                      <input type="text" name="username" id="inputUsername" class="form-control border border-success" placeholder="Username" required autofocus>
+                  </div>
+	              </div>
+                <div class="form-label-group mb-2 mt-2">
+                  <!-- <label for="inputPassword">Password</label> -->
+                  <div class="input-group">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text border border-success edited"><i class="fas fa-key"></i></div>
+                      </div>
+                      <input type="password" name="password" id="inputPassword" class="form-control border border-success" placeholder="Password" required>
+                  </div>
+                </div>
+	              <div class="custom-control custom-checkbox mb-4 ml-2">
+	                <input type="checkbox" class="custom-control-input border border-success" id="customCheck1">
+	                <label class="custom-control-label" id = "check-text" for="customCheck1">Remember password</label>
+                  <label class = "float-md-right" id = "login-Forgot"><a href="#">Forgot Password?</a></label>
 	              </div>
 
-	              <div class="form-label-group">
-	                <label for="inputPassword">Password</label>
-	                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
-	              </div>
-
-	              <div class="custom-control custom-checkbox mb-3">
-	                <input type="checkbox" class="custom-control-input" id="customCheck1">
-	                <label class="custom-control-label" for="customCheck1">Remember password</label>
-	              </div>
-	              <button class="btn btn-lg btn-dark btn-block text-uppercase" type="submit">Sign in</button>
+	              <button class="btn btn-lg btn-success btn-block text-uppercase"  id = "btn-login" type="submit"><i class="fas fa-sign-in-alt"></i> Sign in</button>
 	            </form>
 	          </div>
 	        </div>
-	        <div class="container bg-dark" id="footer-login">
+	        <div class="container" id="footer-login">
 				  <div class="row">
-			        <div class="col-sm-12">
-			          <i class="fab fa-creative-commons"></i> 
+			        <div class="col-sm-12 pt-2">
+			          <i class="fab fa-creative-commons"></i>
 			          <p id="developer-login">Developed by IT Training and Solutions Engineering Center</p>
 			          <p id="copy-statement-login">
 			            Except where otherwise noted, content on this site is licensed under a Creative Commons Attribution 4.0 International license. Icons by The Noun Project.

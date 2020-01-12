@@ -56,7 +56,7 @@ class Autoload extends \CodeIgniter\Config\AutoloadConfig
 			//'BaseControl' => APPPATH . 'Controllers',
 			'Modules\Node'  => ROOTPATH.'modules/Node',
 			'Modules\UserManagement'  => ROOTPATH.'modules/UserManagement',
-			'Modules\Section'  => ROOTPATH.'modules/Section'
+			'Modules\UniversitySetting'  => ROOTPATH.'modules/UniversitySetting'
 		];
 
 		//echo $psr4['Modules'];  die();

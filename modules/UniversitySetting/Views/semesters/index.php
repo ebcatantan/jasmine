@@ -3,7 +3,7 @@
       search here
    </div>
    <div class="col-md-2">
-    <?php user_add_link('users', $_SESSION['userPermmissions']) ?>
+    <?php user_add_link('semesters', $_SESSION['userPermmissions']) ?>
    </div>
  </div>
 <br>
@@ -11,26 +11,25 @@
  <div class="table-responsive">
    <table class="table table-bordered">
     <thead class="thead-dark">
-      <tr align="center">
+      <tr class="text-center">
         <th>#</th>
-        <th>Subject Code</th>
-        <th>Subject title</th>
-        <th>Description</th>
+        <th>Name</th>
+        <th>Status</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
       <?php $cnt = 1; ?>
-      <?php foreach($users as $user): ?>
-      <tr id="<?php echo $user['id']; ?>">
+      <?php foreach($semesters as $semester): ?>
+      <tr id="<?php echo $semester['id']; ?>">
         <th scope="row"><?= $cnt++ ?></th>
-        <td><?= $user['firstname'].' '.$user['lastname'] ?></td>
-        <td><?= $user['username'] ?></td>
-        <td><?= $user['email'] ?></td>
+        <!-- <td><?php echo "Jayson" ?></td> -->
+        <td><?= ucwords($semester['name']) ?></td>
+        <td style="text-align: center;"><?= ucwords($semester['status']) ?></td>
         <td class="text-center">
-         <?php
-            users_action('users', $_SESSION['userPermmissions'], $user['id']);
-         ?>
+          <?php
+            users_action('semesters', $_SESSION['userPermmissions'], $semester['id']);
+          ?>
         </td>
       </tr>
       <?php endforeach; ?>
@@ -38,8 +37,9 @@
   </table>
  </div>
 <hr>
+
 <div class="row">
   <div class="col-md-6 offset-md-6">
-    <?php paginater('users', count($all_items), PERPAGE, $offset) ?>
+    <?php paginater('semesters', count($all_items), PERPAGE, $offset) ?>
   </div>
 </div>

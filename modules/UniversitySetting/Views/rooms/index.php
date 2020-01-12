@@ -3,7 +3,7 @@
       search here
    </div>
    <div class="col-md-2">
-    <?php user_add_link('semesters', $_SESSION['userPermmissions']) ?>
+    <?php user_add_link('rooms', $_SESSION['userPermmissions']) ?>
    </div>
  </div>
 <br>
@@ -13,20 +13,25 @@
     <thead class="thead-dark">
       <tr class="text-center">
         <th>#</th>
-        <th>Name</th>
-        <th>Status</th>
+        <th>Building</th>
+        <th>Room Code</th>
+        <th>Room Name</th>
+        <th>Description</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
       <?php $cnt = 1; ?>
-      <?php foreach($semesters as $semester): ?>
-      <tr id="<?php echo $semester['id']; ?>">
+      <?php foreach($rooms as $room): ?>
+      <tr id="<?php echo $room['id']; ?>">
         <th scope="row"><?= $cnt++ ?></th>
-        <td><?= ucwords($semester['name']) ?></td>
+        <td><?= ucwords($room['building_code']) . '-' . ucwords($room['building_name'])?></td>
+        <td><?= ucwords($room['room_name']) ?></td>
+        <td><?= ucwords($room['room_code']) ?></td>
+        <td><?= ucwords($room['description']) ?></td>
         <td class="text-center">
           <?php
-            users_action('semesters', $_SESSION['userPermmissions'], $semester['id']);
+            users_action('rooms', $_SESSION['userPermmissions'], $room['id']);
           ?>
         </td>
       </tr>
@@ -38,6 +43,6 @@
 
 <div class="row">
   <div class="col-md-6 offset-md-6">
-    <?php paginater('semesters', count($all_items), PERPAGE, $offset) ?>
+    <?php paginater('rooms', count($all_items), PERPAGE, $offset) ?>
   </div>
 </div>

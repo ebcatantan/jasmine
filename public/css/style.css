@@ -68,8 +68,12 @@ textarea {
 	/*text-align: center;*/
 	font-size: 0.6em;
 	padding: 20px 20px 15px 20px;
-	color: white;
-	margin-top: -40px;
+	color: #2d2d2d;
+	margin-top: -10px;
+	-webkit-box-shadow: 0px 0px 74px -10px rgba(45,45,45,0.85);
+	-moz-box-shadow: 0px 0px 74px -10px rgba(45,45,45,0.85);
+	box-shadow: 0px 0px 74px -10px rgba(45,45,45,0.85);
+	background: #fff;
 }
 
 #footer-login i
@@ -108,4 +112,83 @@ span.field-value
 	background-color: #cedff1;
 	margin-bottom: 2px;
 	color: #343a40;
+}
+
+/*Login Form (Timo)*/
+
+#jasmine-logo
+{
+	width: 70%;
+}
+
+#login-card
+{
+	box-shadow: 0px 0px 74px -10px rgba(45,45,45,0.85);
+}
+
+#login-container
+{
+	margin-top: 50px;
+}
+
+#login-card, #inputPassword, #inputUsername, #btn-login, #footer-login
+{
+	border-radius: 15px;
+}
+
+#inputPassword, #inputUsername
+{
+	height: 50px;
+	margin: 5px 0px 5px 0px;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+	color: #0a9c06;
+}
+
+#login-card-body
+{
+	padding: 50px;
+}
+
+.edited
+{
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-right:  0px none;
+	background: #fff;
+	color: #0a9c06;
+	font-size: 14pt;
+	height: 50px;
+	margin: 5px 0px 5px 0px;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before
+{
+  color: #fff;
+  border-color: #0a9c06;
+  background-color: #0a9c06;
+}
+
+#customCheck1
+{
+	border-color: #0a9c06;
+}
+
+#check-text
+{
+		color: #0a9c06;
+		font-size: 11pt;
+}
+
+#login-Forgot a
+{
+	font-size: 11pt;
+	color: #0084ff;
+}
+
+#bg-login
+{
+	background: url(../img/bg-login.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
 }

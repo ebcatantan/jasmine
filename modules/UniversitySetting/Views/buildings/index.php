@@ -3,7 +3,7 @@
       search here
    </div>
    <div class="col-md-2">
-    <?php user_add_link('users', $_SESSION['userPermmissions']) ?>
+    <?php user_add_link('buildings', $_SESSION['userPermmissions']) ?>
    </div>
  </div>
 <br>
@@ -11,26 +11,26 @@
  <div class="table-responsive">
    <table class="table table-bordered">
     <thead class="thead-dark">
-      <tr align="center">
+      <tr class="text-center">
         <th>#</th>
-        <th>Subject Code</th>
-        <th>Subject title</th>
+        <th>Building Code</th>
+        <th>Building Name</th>
         <th>Description</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
       <?php $cnt = 1; ?>
-      <?php foreach($users as $user): ?>
-      <tr id="<?php echo $user['id']; ?>">
+      <?php foreach($buildings as $building): ?>
+      <tr id="<?php echo $building['id']; ?>">
         <th scope="row"><?= $cnt++ ?></th>
-        <td><?= $user['firstname'].' '.$user['lastname'] ?></td>
-        <td><?= $user['username'] ?></td>
-        <td><?= $user['email'] ?></td>
+        <td><?= ucwords($building['building_code']) ?></td>
+        <td><?= ucwords($building['building_name']) ?></td>
+        <td><?= ucwords($building['description']) ?></td>
         <td class="text-center">
-         <?php
-            users_action('users', $_SESSION['userPermmissions'], $user['id']);
-         ?>
+          <?php
+            users_action('buildings', $_SESSION['userPermmissions'], $building['id']);
+          ?>
         </td>
       </tr>
       <?php endforeach; ?>
@@ -38,8 +38,9 @@
   </table>
  </div>
 <hr>
+
 <div class="row">
   <div class="col-md-6 offset-md-6">
-    <?php paginater('users', count($all_items), PERPAGE, $offset) ?>
+    <?php paginater('buildings', count($all_items), PERPAGE, $offset) ?>
   </div>
 </div>

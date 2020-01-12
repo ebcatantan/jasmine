@@ -1,8 +1,10 @@
 <?php
-namespace Modules\Section\Controllers;
+namespace Modules\UniversitySetting\Controllers;
 				//modulenames	  	//modelname
-use Modules\Section\Models\SectionModel;
+use Modules\UniversitySetting\Models\SectionModel;
 use Modules\UserManagement\Models\PermissionsModel;
+use Modules\UniversitySetting\Models\SubjectsModel;
+
 use App\Controllers\BaseController;
 			//controllername
 class Section extends BaseController
@@ -18,36 +20,36 @@ class Section extends BaseController
 
     public function index($offset = 0)
     {
-    	$this->hasPermissionRedirect('list-of-section');
-    	$model = new SectionModel();
+			$this->hasPermissionRedirect('list-of-section');
+		$model = new SectionModel();
 
-    	//kailangan ito para sa pagination
-       	$data['all_items'] = $model->getSectionWithCondition(['status'=> 'a']);
-       	$data['offset'] = $offset;
+		//kailangan ito para sa pagination
+			$data['all_items'] = $model->getSectionWithCondition(['status'=> 'a']);
+			$data['offset'] = $offset;
 
-        $data['sections'] = $model->getSectionWithFunction(['status'=> 'a', 'limit' => PERPAGE, 'offset' =>  $offset]);
-        $data['function_title'] = "Section List";
-        $data['viewName'] = 'Modules\Section\Views\section\index';
-        echo view('App\Views\theme\index', $data);
+			$data['sections'] = $model->getSectionWithFunction(['status'=> 'a', 'limit' => PERPAGE, 'offset' =>  $offset]);
+			$data['function_title'] = "Section List";
+			$data['viewName'] = 'Modules\UniversitySetting\Views\section\index';
+			echo view('App\Views\theme\index', $data);
     }
 
     public function show_Section($id)
 	{
 		$this->hasPermissionRedirect('show-section');
-		$data['permissions'] = $this->permissions;
+			$data['permissions'] = $this->permissions;
 
-		$model = new SectionModel();
+			$model = new SectionModel();
 
-		$data['role'] = $model->getSectionWithCondition(['id' => $id]);
+			$data['role'] = $model->getSectionWithCondition(['id' => $id]);
 
-		$data['function_title'] = "Section Details";
-        $data['viewName'] = 'Modules\Section\Views\section\SectionDetails';
-        echo view('App\Views\theme\index', $data);
+			$data['function_title'] = "Section Details";
+	        $data['viewName'] = 'Modules\UniversitySetting\Views\section\SectionDetails';
+	        echo view('App\Views\theme\index', $data);
 	}
 
     public function add_Section()
     {
-    	$this->hasPermissionRedirect('add-section');
+			$this->hasPermissionRedirect('add-section');
 
     	$permissions_model = new PermissionsModel();
 
@@ -62,7 +64,7 @@ class Section extends BaseController
 		    {
 		    	$data['errors'] = \Config\Services::validation()->getErrors();
 		        $data['function_title'] = "Adding Section";
-		        $data['viewName'] = 'Modules\Section\Views\section\frmRole';
+		        $data['viewName'] = 'Modules\UniversitySetting\Views\section\frmRole';
 		        echo view('App\Views\theme\index', $data);
 		    }
 		    else
@@ -85,14 +87,14 @@ class Section extends BaseController
     	{
 
 	    		$data['function_title'] = "Adding Section";
-	        $data['viewName'] = 'Modules\Section\Views\section\frmRole';
+	        $data['viewName'] = 'Modules\UniversitySetting\Views\section\frmRole';
 	        echo view('App\Views\theme\index', $data);
     	}
     }
 
     public function edit_Section($id)
     {
-    	$this->hasPermissionRedirect('edit-section');
+			$this->hasPermissionRedirect('edit-section');
     	helper(['form', 'url']);
     	$model = new SectionModel();
     	$data['rec'] = $model->find($id);
@@ -107,7 +109,7 @@ class Section extends BaseController
 		    {
 		    	$data['errors'] = \Config\Services::validation()->getErrors();
 		        $data['function_title'] = "Edit of Section";
-		        $data['viewName'] = 'Modules\Section\Views\section\frmRole';
+		        $data['viewName'] = 'Modules\UniversitySetting\Views\section\frmRole';
 		        echo view('App\Views\theme\index', $data);
 		    }
 		    else
@@ -129,7 +131,7 @@ class Section extends BaseController
     	else
     	{
 	    	$data['function_title'] = "Edit Section";
-	        $data['viewName'] = 'Modules\Section\Views\section\frmRole';
+	        $data['viewName'] = 'Modules\UniversitySetting\Views\section\frmRole';
 	        echo view('App\Views\theme\index', $data);
     	}
     }
