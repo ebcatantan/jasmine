@@ -46,6 +46,6 @@ class Migrate extends \CodeIgniter\Controller
         //$seeder->call('UsersSeeder');
         //$seeder->call('ModuleSeeder');
         //$seeder->call('PermissionSeeder');
-        // $seeder->call('StudentsSeeder');
+        //$seeder->call('StudentsSeeder');
     }
 }

@@ -1,8 +1,18 @@
  <div class="row">
-   <div class="col-md-10">
-      search here
+   <div class="col-md-6 offset-0">
+     <div class="input-group">
+      <input type="text" name="search_item" class="form-control" placeholder="Search Students here">
+      <div class="input-group-append">
+        <button class="btn btn-dark" type="button">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </div>
    </div>
-   <div class="col-md-2">
+   <!--<div class="col-md-10">
+      search here
+   </div>-->
+   <div class="col-md-2 offset-md-4">
     <?php user_add_link('students', $_SESSION['userPermmissions']) ?>
    </div>
  </div>
@@ -14,10 +24,10 @@
       <tr class="text-center">
         <th>#</th>
         <th>Student No.</th>
-        <th>Last Name</th>
-        <th>First Name</th>
-        <th>Middle Name</th>
-        <th>Extension Name</th>
+        <th>Full Name</th>
+        <th>Gender</th>
+        <th>Email</th>
+        <th>Contact no.</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -27,17 +37,18 @@
       <tr id="<?php echo $student['id']; ?>">
         <th scope="row"><?= $cnt++ ?></th>
         <td><?= ucwords($student['student_no']) ?></td>
-        <td><?= ucwords($student['last_name']) ?></td>
-        <td><?= ucwords($student['first_name']) ?></td>
-        <td><?= ucwords($student['middle_name']) ?></td>
-        <td><?= ucwords($student['extension_name']) ?></td>
-        <!--<td><?= ucwords($student['address']) ?></td>
-        <td><?= ucwords($student['barangay ']) ?></td>
+        <td><?= ucwords($student['last_name'].', ' . $student['first_name'] . ' ' . $student['extension_name'] . ' ' . $student['middle_name']) ?></td>
+        <td><?= ucwords($student['gender']) ?></td>
         <td><?= ucwords($student['email']) ?></td>
         <td><?= ucwords($student['contact_no']) ?></td>
+        <!-- incase na gusto iprint lahat ng field sa view -->
+  <!--  <td><?= ucwords($student['first_name']) ?></td>
+        <td><?= ucwords($student['middle_name']) ?></td>
+        <td><?= ucwords($student['extension_name']) ?></td>
+        <td><?= ucwords($student['address']) ?></td>
+        <td><?= ucwords($student['barangay']) ?></td>
         <td><?= ucwords($student['birth_date']) ?></td>
         <td><?= ucwords($student['birth_place']) ?></td>
-        <td><?= ucwords($student['gender']) ?></td>
         <td><?= ucwords($student['civil_status']) ?></td>
         <td><?= ucwords($student['maiden_name']) ?></td>
         <td><?= ucwords($student['height']) ?></td>
@@ -54,6 +65,8 @@
         <td><?= ucwords($student['voter_id']) ?></td>
         <td><?= ucwords($student['person_to_notify']) ?></td>
         <td><?= ucwords($student['emergency_no']) ?></td>-->
+
+
         <td class="text-center">
           <?php
             users_action('students', $_SESSION['userPermmissions'], $student['id']);

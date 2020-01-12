@@ -7,7 +7,11 @@ class StudentsModel extends \CodeIgniter\Model
 {
     protected $table = 'students';
 
-    protected $allowedFields = ['academic_year_instance_id', 'student_examinee_id', 'user_id','profiler_id', 'student_no', 'last_name', 'first_name', 'middle_name', 'extension_name', 'address', 'barangay', 'email', 'contact_no', 'birth_date', 'birth_place', 'gender', 'civil_status', 'maiden_name', 'height', 'weight', 'religion', 'year_profiled', 'father_name', 'father_occupation', 'mother_name', 'mother_occupation', 'guardian', 'relation_guardian', 'guardian_contact_no', 'voter_id', 'person_to_notify', 'emergency_no', 'status', 'created_at','updated_at', 'deleted_at'];
+    protected $allowedFields = ['academic_year_instance_id', 'student_examinee_id', 'user_id', 'profiller_id', 'student_no',
+     'last_name', 'first_name', 'middle_name', 'extension_name', 'address', 'barangay', 'email', 'contact_no', 'birth_date',
+     'birth_place', 'gender', 'civil_status', 'maiden_name', 'height', 'weight', 'religion', 'year_profiled', 'father_name',
+     'father_occupation', 'mother_name','mother_occupation', 'guardian', 'relation_guardian', 'guardian_contact_no', 'voter_id',
+     'person_to_notify', 'emergency_no', 'status', 'created_at','updated_at', 'deleted_at'];
 
     public function getStudentWithCondition($conditions = [])
 	{
@@ -37,7 +41,8 @@ class StudentsModel extends \CodeIgniter\Model
 
     public function addStudents($val_array = [])
 	{
-      $val_array['profiler_id'] = $_SESSION['uid'];
+      $val_array['profiller_id'] = $_SESSION['uid']; //dito nagwowhoops(need ivalidate para di pumasok ng walang laman)
+      $val_array['user_id'] = $_SESSION['uid'];
   		$val_array['created_at'] = (new \DateTime())->format('Y-m-d H:i:s');
     	$val_array['status'] = 'a';
 	    return $this->save($val_array);

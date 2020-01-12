@@ -198,7 +198,17 @@ class Validation
             ]
         ],
 		    ];
+
 				public $student = [
+
+					/*'profiller_id' => [
+							//'label'  => 'Profiller ID',
+							'rules'  => 'required',
+							'errors' => [
+									'required' => 'Required.'
+							]
+					],*/
+
 						'student_no' => [
 								'label'  => 'Student No.',
 								'rules'  => 'required',
@@ -224,6 +234,22 @@ class Validation
 										'alpha' => 'First Name must not have numbers.'
 								]
 						],
+						//di naman lahat ng students may middle name tsaka extension name
+						/*'middle_name' => [
+								'label'  => 'Middle Name',
+								'rules'  => 'alpha_space',
+								'errors' => [
+										''
+								]
+						],
+
+						'extension_name' => [
+								'label'  => 'First Name',
+								'rules'  => 'alpha_space',
+								'errors' => [
+										''
+								]
+						],*/
 
 						'address' => [
 								'label'  => 'Address',

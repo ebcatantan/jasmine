@@ -34,17 +34,17 @@ class Students extends BaseController
         echo view('App\Views\theme\index', $data);
     }
 
-    public function show_role($id)
+    public function show_student($id)
 	{
-		$this->hasPermissionRedirect('show-role-details');
+		$this->hasPermissionRedirect('show-student-details');
 		$data['permissions'] = $this->permissions;
 
-		$model = new RolesModel();
+		$model = new StudentsModel();
 
-		$data['role'] = $model->getRoleWithCondition(['id' => $id]);
+		$data['students'] = $model->getStudentWithCondition(['id' => $id]);
 
-		$data['function_title'] = "Role Details";
-        $data['viewName'] = 'Modules\UserManagement\Views\roles\roleDetails';
+		$data['function_title'] = "Student Details";
+        $data['viewName'] = 'Modules\StudentManagement\Views\students\studentDetails';
         echo view('App\Views\theme\index', $data);
 	}
 
@@ -85,7 +85,7 @@ class Students extends BaseController
     	}
     	else
     	{
-					$model->addStudents([]);	
+					//$model->addStudents([]); ito yung may kagagawan kung bakit kahit walang laman yung form nagkakaroon sa database
 	    		$data['function_title'] = "Adding Student";
 	        $data['viewName'] = 'Modules\StudentManagement\Views\students\frmStudent';
 	        echo view('App\Views\theme\index', $data);
@@ -131,7 +131,7 @@ class Students extends BaseController
     	}
     	else
     	{
-	    	$data['function_title'] = "Editing of Role";
+	    	$data['function_title'] = "Editing of Student";
 	        $data['viewName'] = 'Modules\StudentManagement\Views\students\frmStudent';
 	        echo view('App\Views\theme\index', $data);
     	}
