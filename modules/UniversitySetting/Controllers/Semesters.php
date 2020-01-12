@@ -27,7 +27,18 @@ class Semesters extends BaseController
        	$data['all_items'] = $model->get(['status'=> 'a']);
        	$data['offset'] = $offset;
 
-        $data['semesters'] = $model->get(['status'=> 'a'],[],[],['limit' => PERPAGE, 'offset' =>  $offset]);
+				$fields = [];
+				$tables = [];
+				$conditions = ['status' => 'a'];
+				if ($_POST['search_something'] != '') {
+					$_SESSION['search_input'] = 'Result for: ' . $_POST['search_something'];
+					$this->session->markAsFlashdata('search_input');
+					$data['semesters'] = $model->get($conditions,$fields,$tables, ['offset' => $offset, 'limit' => PERPAGE], ['name' => $_POST['search_something']]);
+				}
+				else {
+					unset($_SESSION['search_input']);
+					$data['semesters'] = $model->get($conditions,$fields,$tables, ['offset' => $offset, 'limit' => PERPAGE]);
+				}
 
         $data['function_title'] = "Semester List";
         $data['viewName'] = 'Modules\UniversitySetting\Views\semesters\index';

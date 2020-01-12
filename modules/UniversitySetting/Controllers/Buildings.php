@@ -23,15 +23,21 @@ class Buildings extends BaseController
     	$this->hasPermissionRedirect('list-building');
     	$model = new BuildingsModel();
     	//kailangan ito para sa pagination
-
 			$fields = [];
 			$tables = [];
 			$conditions = ['status' => 'a'];
 
      	$data['all_items'] = $model->get($conditions);
      	$data['offset'] = $offset;
-
-      $data['buildings'] = $model->get($conditions,$tables,$fields, ['offset' => $offset, 'limit' => PERPAGE]);
+			if ($_POST['search_something'] != '') {
+				$_SESSION['search_input'] = 'Result for: ' . $_POST['search_something'];
+				$this->session->markAsFlashdata('search_input');
+				$data['buildings'] = $model->get($conditions,$fields,$tables, ['offset' => $offset, 'limit' => PERPAGE], ['building_code' => $_POST['search_something']]);
+			}
+			else {
+				unset($_SESSION['search_input']);
+				$data['buildings'] = $model->get($conditions,$fields,$tables, ['offset' => $offset, 'limit' => PERPAGE]);
+			}
       $data['function_title'] = "Buildings List";
       $data['viewName'] = 'Modules\UniversitySetting\Views\buildings\index';
       echo view('App\Views\theme\index', $data);

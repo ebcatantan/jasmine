@@ -39,7 +39,15 @@ class Courses extends BaseController
 			$conditions = [
 				'courses.status' => 'a'
 			];
-      $data['courses'] = $model->get($conditions,$fields,$tables,['offset' => $offset, 'limit' => PERPAGE]);
+			if ($_POST['search_something'] != '') {
+				$_SESSION['search_input'] = 'Result for: ' . $_POST['search_something'];
+				$this->session->markAsFlashdata('search_input');
+				$data['courses'] = $model->get($conditions,$fields,$tables, ['offset' => $offset, 'limit' => PERPAGE], ['course_title' => $_POST['search_something']]);
+			}
+			else {
+				unset($_SESSION['search_input']);
+				$data['courses' ] = $model->get($conditions,$fields,$tables,['offset' => $offset, 'limit' => PERPAGE]);
+			}
       $data['function_title'] = "Courses List";
       $data['viewName'] = 'Modules\UniversitySetting\Views\courses\index';
       echo view('App\Views\theme\index', $data);

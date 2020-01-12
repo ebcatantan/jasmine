@@ -55,7 +55,7 @@ class BaseController extends Controller
 	public function __construct()
 	{
 		$this->session = \Config\Services::session();
-		helper(['link', 'namesearch', 'paging']);
+		helper(['link', 'namesearch', 'paging', 'search']);
 
 		$model_permission = new PermissionsModel();
 		$model_module = new ModulesModel();

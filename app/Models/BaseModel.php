@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 class BaseModel extends Model
 {
 
-  public function get($conditions = [], $fields = [], $tables = [], $args = [])
+  public function get($conditions = [], $fields = [], $tables = [], $args = [], $search = [])
   {
     $this->select($this->table.'.*');
     foreach ($fields as $table => $array) {
@@ -23,6 +23,10 @@ class BaseModel extends Model
 
     foreach($conditions as $field => $value) {
       $this->where($field, $value);
+    }
+
+    if (!empty($search)) {
+      $this->like($search);
     }
 
     if (!empty($args)) {

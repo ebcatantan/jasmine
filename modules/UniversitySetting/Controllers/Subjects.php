@@ -27,7 +27,18 @@ class Subjects extends BaseController
        	$data['all_items'] = $model->get(['status'=> 'a']);
        	$data['offset'] = $offset;
 
-        $data['subjects'] = $model->get(['status'=> 'a'],[],[],[ 'limit' => PERPAGE, 'offset' =>  $offset]);
+				$fields = [];
+				$tables = [];
+				$conditions = ['status' => 'a'];
+				if ($_POST['search_something'] != '') {
+					$_SESSION['search_input'] = 'Result for: ' . $_POST['search_something'];
+					$this->session->markAsFlashdata('search_input');
+					$data['subjects'] = $model->get($conditions,$fields,$tables, ['offset' => $offset, 'limit' => PERPAGE], ['subject_title' => $_POST['search_something']]);
+				}
+				else {
+					unset($_SESSION['search_input']);
+					$data['subjects'] = $model->get($conditions,$fields,$tables, ['offset' => $offset, 'limit' => PERPAGE]);
+				}
 
         $data['function_title'] = "Subject List";
         $data['viewName'] = 'Modules\UniversitySetting\Views\subjects\index';

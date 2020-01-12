@@ -48,7 +48,15 @@ class Departments extends BaseController
 			$conditions = [
 				'departments.status'=> 'a'
 			];
-      $data['departments'] = $model->get($conditions, $fields,$tables, ['offset' => $offset, 'limit' => PERPAGE]);
+			if ($_POST['search_something'] != '') {
+				$_SESSION['search_input'] = 'Result for: ' . $_POST['search_something'];
+				$this->session->markAsFlashdata('search_input');
+				$data['departments'] = $model->get($conditions,$fields,$tables, ['offset' => $offset, 'limit' => PERPAGE], ['department_name' => $_POST['search_something']]);
+			}
+			else {
+				unset($_SESSION['search_input']);
+				$data['departments' ] = $model->get($conditions,$fields,$tables,['offset' => $offset, 'limit' => PERPAGE]);
+			}
       $data['function_title'] = "Departments List";
       $data['viewName'] = 'Modules\UniversitySetting\Views\departments\index';
       echo view('App\Views\theme\index', $data);

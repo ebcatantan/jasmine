@@ -41,7 +41,15 @@ class Rooms extends BaseController
 			$conditions = [
 				'rooms.status' => 'a'
 			];
-      $data['rooms'] = $model->get($conditions, $fields, $tables, ['limit' => PERPAGE, 'offset' => $offset]);
+			if ($_POST['search_something'] != '') {
+				$_SESSION['search_input'] = 'Result for: ' . $_POST['search_something'];
+				$this->session->markAsFlashdata('search_input');
+				$data['rooms'] = $model->get($conditions,$fields,$tables, ['offset' => $offset, 'limit' => PERPAGE], ['room_code' => $_POST['search_something']]);
+			}
+			else {
+				unset($_SESSION['search_input']);
+				$data['rooms' ] = $model->get($conditions,$fields,$tables,['offset' => $offset, 'limit' => PERPAGE]);
+			}
       $data['function_title'] = "Rooms List";
       $data['viewName'] = 'Modules\UniversitySetting\Views\rooms\index';
       echo view('App\Views\theme\index', $data);

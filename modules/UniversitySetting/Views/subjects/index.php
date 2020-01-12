@@ -1,11 +1,19 @@
- <div class="row">
-   <div class="col-md-10">
-      search here
-   </div>
-   <div class="col-md-2">
-    <?php user_add_link('subjects', $_SESSION['userPermmissions']) ?>
-   </div>
- </div>
+<div class="row">
+  <div class="col-md-5">
+     <?php search('subjects') ?>
+  </div>
+  <div class="col-md-2  offset-md-5">
+   <?php user_add_link('subjects', $_SESSION['userPermmissions']) ?>
+  </div>
+</div>
+<?php if (isset($_SESSION['search_input'])): ?>
+  <br>
+  <div class="row">
+    <div class="col-md-6">
+      <h4><?= $_SESSION['search_input'] ?></h4>
+    </div>
+  </div>
+<?php endif; ?>
 <br>
   <?php $uri = new \CodeIgniter\HTTP\URI(current_url()); ?>
  <div class="table-responsive">

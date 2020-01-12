@@ -28,7 +28,18 @@ class Colleges extends BaseController
     	//kailangan ito para sa pagination
        	$data['all_items'] = $model->get(['status'=> 'a']);
        	$data['offset'] = $offset;
-        $data['colleges'] = $model->get(['status'=> 'a'],[],[],['limit' => PERPAGE, 'offset' =>  $offset]);
+				$fields = [];
+				$tables = [];
+				$conditions = ['status' => 'a'];
+				if ($_POST['search_something'] != '') {
+					$_SESSION['search_input'] = 'Result for: ' . $_POST['search_something'];
+					$this->session->markAsFlashdata('search_input');
+					$data['colleges'] = $model->get($conditions,$fields,$tables, ['offset' => $offset, 'limit' => PERPAGE], ['college_code' => $_POST['search_something']]);
+				}
+				else {
+					unset($_SESSION['search_input']);
+					$data['colleges'] = $model->get($conditions,$fields,$tables, ['offset' => $offset, 'limit' => PERPAGE]);
+				}
 
         $data['function_title'] = "Colleges List";
         $data['viewName'] = 'Modules\UniversitySetting\Views\colleges\index';
