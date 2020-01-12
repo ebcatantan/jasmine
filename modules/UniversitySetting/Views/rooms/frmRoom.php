@@ -15,7 +15,11 @@
             <label for="building_id">Building</label>
             <select name="building_id" type="text" class="form-control" id="building_id" placeholder="Building">
               <?php foreach ($buildings as $building): ?>
-                <option value="<?=$building['id']?>"><?=$building['building_name'].' ('.$building['building_code'].')'?></option>
+                <?php if (isset($rec)): ?>
+                  <option value="<?=$building['id']?>" <?=$rec[0]['building_id'] == $building['id']? 'selected' : ''?>><?=$building['building_name'].' ('.$building['building_code'].')'?></option>
+                <?php else: ?>
+                  <option value="<?=$building['id']?>"><?=$building['building_name'].' ('.$building['building_code'].')'?></option>
+                <?php endif; ?>
               <?php endforeach; ?>
             </select>
               <?php if($errors['building_id']): ?>
@@ -29,7 +33,7 @@
       <div class="row">
         <div class="col-md-6 offset-md-3">
           <div class="form-group">
-            <label for="room_code"><?=$rec[0]['room_code']?></label>
+            <label for="room_code">Room Code</label>
             <input name="room_code" type="text" value="<?= isset($rec[0]['room_code']) ? $rec[0]['room_code'] : set_value('room_code') ?>" class="form-control <?= $errors['room_code'] ? 'is-invalid':'is-valid' ?>" id="room_code" placeholder="Room Code">
               <?php if($errors['room_code']): ?>
                 <div class="invalid-feedback">

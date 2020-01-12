@@ -3,6 +3,7 @@ namespace Modules\UniversitySetting\Controllers;
 
 use Modules\UserManagement\Models\PermissionsModel;
 use Modules\UniversitySetting\Models\BuildingsModel;
+use Modules\UniversitySetting\Models\RoomsModel;
 use App\Controllers\BaseController;
 
 class Buildings extends BaseController
@@ -20,16 +21,17 @@ class Buildings extends BaseController
     public function index($offset = 0)
     {
     	$this->hasPermissionRedirect('list-building');
-
     	$model = new BuildingsModel();
     	//kailangan ito para sa pagination
-     	$data['all_items'] = $model->get([],[],['status'=> 'a'],[]);
-     	$data['offset'] = $offset;
 
 			$fields = [];
 			$tables = [];
-			$conditions = [];
-      $data['buildings'] = $model->get([],[],['status'=> 'a'], ['offset' => $offset, 'limit' => PERPAGE]);
+			$conditions = ['status' => 'a'];
+
+     	$data['all_items'] = $model->get($conditions);
+     	$data['offset'] = $offset;
+
+      $data['buildings'] = $model->get($conditions,$tables,$fields, ['offset' => $offset, 'limit' => PERPAGE]);
       $data['function_title'] = "Buildings List";
       $data['viewName'] = 'Modules\UniversitySetting\Views\buildings\index';
       echo view('App\Views\theme\index', $data);
@@ -42,7 +44,7 @@ class Buildings extends BaseController
 
 			$model = new BuildingsModel();
 
-			$data['building'] = $model->get([],[],['id' => $id],[]);
+			$data['building'] = $model->get(['id' => $id]);
 			$data['function_title'] = "Building Details";
 	    $data['viewName'] = 'Modules\UniversitySetting\Views\buildings\buildingDetails';
 	  	echo view('App\Views\theme\index', $data);
@@ -51,7 +53,6 @@ class Buildings extends BaseController
     public function add_building()
     {
     	$this->hasPermissionRedirect('add-building');
-
     	$permissions_model = new PermissionsModel();
 
     	$data['permissions'] = $this->permissions;
@@ -139,7 +140,9 @@ class Buildings extends BaseController
     {
     	$this->hasPermissionRedirect('delete-building');
     	$model = new BuildingsModel();
-    	$model->deleteBuilding($id);
+			$room_model = new RoomsModel();
+			$room_model->erase($id, 'building_id');
+    	$model->erase($id);
     }
 
 }

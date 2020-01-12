@@ -14,7 +14,9 @@ class CreateDepartments extends \CodeIgniter\Database\Migration {
 
                         'college_id'          => [
                                 'type'           => 'BIGINT',
-                                'constraint'     => '20'
+                                'constraint'     => '20',
+                                'null'           => true,
+                                'default'        => null
                         ],
 
                         'department_head_id'          => [
@@ -42,7 +44,7 @@ class CreateDepartments extends \CodeIgniter\Database\Migration {
                                 'constraint'     => '1',
                                 'default'        => 'a'
                         ],
-                        
+
                         'created_at' => [
                                 'type'           => 'DATETIME',
                                 'comment'        => 'Date of creation',

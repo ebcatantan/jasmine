@@ -20,7 +20,8 @@ class Roles extends BaseController
     public function index($offset = 0)
     {
     	$this->hasPermissionRedirect('list-role');
-
+			$permission_model = new PermissionsModel();
+			$array = $permission_model->getPermissions();
     	$model = new RolesModel();
 
     	//kailangan ito para sa pagination

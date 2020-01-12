@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace Modules\UserManagement\Controllers;
 
 use Modules\UserManagement\Models\PermissionsModel;
@@ -8,14 +8,14 @@ use Modules\UserManagement\Models\RolesModel;
 use App\Controllers\BaseController;
 
 class Permissions extends BaseController
-{ 
+{
 	public function __construct()
 	{
 		parent:: __construct();
 	}
 
     public function index($indexPage = 1)
-    {	
+    {
     	$this->hasPermissionRedirect('role-permissions');
 
     	$model = new PermissionsModel();
@@ -23,7 +23,7 @@ class Permissions extends BaseController
     	$role_model = new RolesModel();
 
         $data['permissions'] = $model->getPermissions();
-        $data['roles'] = $role_model->getRoles();
+        $data['roles'] = $role_model->getRoleWithCondition(['status' => 'a']);
         $data['modules'] = $module_model->getModules();
 
         $data['function_title'] = "Roles Permissions";
@@ -51,7 +51,7 @@ class Permissions extends BaseController
     			}
     			$str = rtrim($str, ',');
     			$str .= ']';
-    			
+
     			$dataVal = 	['allowed_roles' => $str];
     			if($model->editPermission($dataVal, $permissionID))
 				{
@@ -59,7 +59,7 @@ class Permissions extends BaseController
 				}
 
     		}
-     		
+
      		if($isUpdated == 1)
 	         {
 	         	$_SESSION['success'] = 'You have updated the permissions';

@@ -1,11 +1,11 @@
-<?php 
+<?php
 namespace Modules\UserManagement\Controllers;
 
 use Modules\UserManagement\Models\UsersModel;
 use Modules\UserManagement\Models\RolesModel;
 use App\Controllers\BaseController;
 
-class Users extends BaseController 
+class Users extends BaseController
 {
 	private $roles;
 
@@ -14,7 +14,7 @@ class Users extends BaseController
 		parent:: __construct();
 
 		$role_model = new RolesModel();
-		$this->roles = $role_model->getRoleWithCondition(['status' => 'a']);		
+		$this->roles = $role_model->getRoleWithCondition(['status' => 'a']);
 	}
 
 	public function show_user($id)
@@ -34,8 +34,7 @@ class Users extends BaseController
 	public function user_own_profile($id)
 	{
 		$this->hasPermissionRedirect('user-own-profile');
-
-		if($id != $_SESSION['rid'])
+		if($id != $_SESSION['uid'])
 		{
 			header('Location: '.base_url());
 			session_destroy();
@@ -52,11 +51,11 @@ class Users extends BaseController
 	}
 
     public function index($offset = 0)
-    {	
+    {
     	$this->hasPermissionRedirect('list-user');
 
     	$model = new UsersModel();
- 
+
     	//kailangan ito para sa pagination
        	$data['all_items'] = $model->getUserWithCondition(['status'=> 'a']);
        	$data['offset'] = $offset;
@@ -71,9 +70,9 @@ class Users extends BaseController
     public function add_user()
     {
     	$this->hasPermissionRedirect('add-user');
-    	
+
     	$data['roles'] = $this->roles;
-		
+
     	helper(['form', 'url']);
     	$model = new UsersModel();
     	if(!empty($_POST))
@@ -100,7 +99,7 @@ class Users extends BaseController
 					$this->session->markAsFlashdata('error');
 		        	return redirect()->to( base_url('users'));
 		        }
-		    }    		
+		    }
     	}
     	else
     	{
@@ -118,7 +117,7 @@ class Users extends BaseController
     	$data['roles'] = $this->roles;
 
     	helper(['form', 'url', 'html']);
-    	
+
     	$model = new UsersModel();
     	$data['rec'] = $model->find($id);
 
@@ -147,7 +146,7 @@ class Users extends BaseController
 					$this->session->markAsFlashdata('error');
 		        	return redirect()->to( base_url('users'));
 		        }
-		    }    		
+		    }
     	}
     	else
     	{
@@ -160,7 +159,7 @@ class Users extends BaseController
     public function delete_user($id)
     {
     	$this->hasPermissionRedirect('delete-user');
-    	
+
     	$model = new UsersModel();
     	$model->deleteUser($id);
     }

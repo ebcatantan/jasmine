@@ -24,19 +24,22 @@ class Courses extends BaseController
 
     	$model = new CoursesModel();
     	//kailangan ito para sa pagination
-     	$data['all_items'] = $model->get([],[],['status'=> 'a'],[]);
+     	$data['all_items'] = $model->get(['status'=> 'a']);
      	$data['offset'] = $offset;
-
 			$fields = [
-				'description' => 'colleges'
+				 'colleges' => [
+					 'description' => ''
+				 ]
 			];
 			$tables = [
 				'colleges' => [
 					'courses.college_id' => 'colleges.id'
 				]
 			];
-			$conditions = [];
-      $data['courses'] = $model->get($fields,$tables,['courses.status'=> 'a'], ['offset' => $offset, 'limit' => PERPAGE]);
+			$conditions = [
+				'courses.status' => 'a'
+			];
+      $data['courses'] = $model->get($conditions,$fields,$tables,['offset' => $offset, 'limit' => PERPAGE]);
       $data['function_title'] = "Courses List";
       $data['viewName'] = 'Modules\UniversitySetting\Views\courses\index';
       echo view('App\Views\theme\index', $data);
@@ -49,14 +52,19 @@ class Courses extends BaseController
 
 			$model = new CoursesModel();
 			$fields = [
-				'description' => 'colleges'
+				'colleges' => [
+					'description' => ''
+				]
 			];
 			$tables = [
 				'colleges' => [
 					'courses.college_id' => 'colleges.id'
 				]
 			];
-			$data['course'] = $model->get($fields,$tables,['courses.id' => $id],[]);
+			$conditions = [
+				'courses.id' => $id
+			];
+			$data['course'] = $model->get($conditions,$fields,$tables);
 			$data['function_title'] = "Course Details";
 	    $data['viewName'] = 'Modules\UniversitySetting\Views\courses\courseDetails';
 	  	echo view('App\Views\theme\index', $data);
@@ -68,7 +76,7 @@ class Courses extends BaseController
 
     	$permissions_model = new PermissionsModel();
 			$colleges_model = new CollegesModel();
-			$data['colleges'] = $colleges_model->get([],[],['status' => 'a'],[]);
+			$data['colleges'] = $colleges_model->get(['status' => 'a']);
     	$data['permissions'] = $this->permissions;
 
     	helper(['form', 'url']);
@@ -115,7 +123,7 @@ class Courses extends BaseController
     	$data['rec'] = $model->find($id);
     	$permissions_model = new PermissionsModel();
 			$colleges_model = new CollegesModel();
-			$data['colleges'] = $colleges_model->get([],[],['status' => 'a'],[]);
+			$data['colleges'] = $colleges_model->get(['status' => 'a']);
     	$data['permissions'] = $this->permissions;
 
     	if(!empty($_POST))
@@ -155,7 +163,7 @@ class Courses extends BaseController
     {
     	$this->hasPermissionRedirect('delete-course');
     	$model = new CoursesModel();
-    	$model->deleteCourse($id);
+    	$model->erase($id);
     }
 
 }

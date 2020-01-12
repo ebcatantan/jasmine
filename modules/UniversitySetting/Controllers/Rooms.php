@@ -24,20 +24,24 @@ class Rooms extends BaseController
 
     	$model = new RoomsModel();
     	//kailangan ito para sa pagination
-     	$data['all_items'] = $model->get([],[],['status'=> 'a'],[]);
+     	$data['all_items'] = $model->get(['status'=> 'a'],[],[],);
      	$data['offset'] = $offset;
 
 			$fields = [
-				'building_code' => 'buildings',
-				'building_name' => 'buildings'
+				'buildings' => [
+					'building_code' => '',
+					'building_name' => ''
+				]
 			];
 			$tables = [
 				'buildings' => [
 					'rooms.building_id' => 'buildings.id'
 				]
 			];
-			$conditions = [];
-      $data['rooms'] = $model->get($fields,$tables,['rooms.status'=> 'a'], ['limit' => PERPAGE, 'offset' => $offset]);
+			$conditions = [
+				'rooms.status' => 'a'
+			];
+      $data['rooms'] = $model->get($conditions, $fields, $tables, ['limit' => PERPAGE, 'offset' => $offset]);
       $data['function_title'] = "Rooms List";
       $data['viewName'] = 'Modules\UniversitySetting\Views\rooms\index';
       echo view('App\Views\theme\index', $data);
@@ -50,15 +54,20 @@ class Rooms extends BaseController
 
 			$model = new RoomsModel();
 			$fields = [
-				'building_name' => 'buildings',
-				'building_code' => 'buildings'
+				'buildings' => [
+					'building_code' => '',
+					'building_name' => ''
+				]
 			];
 			$tables = [
 				'buildings' => [
 					'rooms.building_id' => 'buildings.id'
 				]
 			];
-			$data['building'] = $model->get($fields,$tables,['rooms.id' => $id],[]);
+			$conditions = [
+				'rooms.status' => 'a'
+			];
+      $data['room'] = $model->get($conditions, $fields, $tables);
 			$data['function_title'] = "Room Details";
 	    $data['viewName'] = 'Modules\UniversitySetting\Views\rooms\roomDetails';
 	  	echo view('App\Views\theme\index', $data);
@@ -70,7 +79,7 @@ class Rooms extends BaseController
 
     	$permissions_model = new PermissionsModel();
 			$buildings_model = new BuildingsModel();
-			$data['buildings'] = $buildings_model->get([],[],['status' => 'a'],[]);
+			$data['buildings'] = $buildings_model->get(['status' => 'a']);
     	$data['permissions'] = $this->permissions;
 
     	helper(['form', 'url']);
@@ -115,8 +124,8 @@ class Rooms extends BaseController
     	helper(['form', 'url']);
 			$buildings_model = new BuildingsModel();
     	$model = new RoomsModel();
-    	$data['rec'] = $model->get([],[],['id' => $id],[]);
-			$data['buildings'] = $buildings_model->get([],[],['status' => 'a'],[]);
+    	$data['rec'] = $model->get(['id' => $id]);
+			$data['buildings'] = $buildings_model->get(['status' => 'a']);
     	$permissions_model = new PermissionsModel();
 
     	$data['permissions'] = $this->permissions;
@@ -158,7 +167,7 @@ class Rooms extends BaseController
     {
     	$this->hasPermissionRedirect('delete-building');
     	$model = new RoomsModel();
-    	$model->deleteRoom($id);
+    	$model->erase($id);
     }
 
 }

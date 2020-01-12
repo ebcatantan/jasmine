@@ -12,12 +12,23 @@ $routes->group('semesters', ['namespace' => 'Modules\UniversitySetting\Controlle
 $routes->group('buildings', ['namespace' => 'Modules\UniversitySetting\Controllers'], function($routes)
 {
     $routes->get('/', 'Buildings::index');
-    $routes->match(['get', 'post'], 'add', 'Buildings::add_course');
+    $routes->match(['get', 'post'], 'add', 'Buildings::add_building');
     $routes->get('(:num)', 'Buildings::index/$1');
-    $routes->get('show/(:num)', 'Buildings::show_course/$1');
-    $routes->match(['get', 'post'], 'edit/(:num)', 'Buildings::edit_course/$1');
+    $routes->get('show/(:num)', 'Buildings::show_building/$1');
+    $routes->match(['get', 'post'], 'edit/(:num)', 'Buildings::edit_building/$1');
     $routes->delete('delete/(:num)', 'Buildings::delete_building/$1');
 });
+
+$routes->group('departments', ['namespace' => 'Modules\UniversitySetting\Controllers'], function($routes)
+{
+    $routes->get('/', 'Departments::index');
+    $routes->match(['get', 'post'], 'add', 'Departments::add_department');
+    $routes->get('(:num)', 'Departments::index/$1');
+    $routes->get('show/(:num)', 'Departments::show_department/$1');
+    $routes->match(['get', 'post'], 'edit/(:num)', 'Departments::edit_department/$1');
+    $routes->delete('delete/(:num)', 'Departments::delete_department/$1');
+});
+
 $routes->group('courses', ['namespace' => 'Modules\UniversitySetting\Controllers'], function($routes)
 {
     $routes->get('/', 'Courses::index');

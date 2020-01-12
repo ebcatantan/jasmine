@@ -59,7 +59,7 @@ class BaseController extends Controller
 
 		$model_permission = new PermissionsModel();
 		$model_module = new ModulesModel();
-		
+
 		if(isset($_SESSION['user_logged_in']))
 		{
 			$this->permissions = $model_permission->like('allowed_roles', $_SESSION['rid'])->findAll();
@@ -71,10 +71,10 @@ class BaseController extends Controller
 		else
 		{
 			$str = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-    		if($str != base_url()) 
+    		if($str != base_url())
     		{
 				header('Location: '.base_url());
-				exit;				
+				exit;
     		}
 		}
 
@@ -109,10 +109,10 @@ class BaseController extends Controller
 
 	// protected function noPermissionRedirect($referrer, $functionSlug)
 	// {
-	
+
 	// 	$isValidSlug = 0;
 
-	// 	echo $referrer; 
+	// 	echo $referrer;
 
 	// 	if(!empty($this->permissions))
 	// 	{
@@ -121,16 +121,16 @@ class BaseController extends Controller
 	// 			if(in_array($functionSlug, $permission))
 	// 			{
 	// 				$isValidSlug = 1;
-	// 				break;		
+	// 				break;
 	// 			}
 	// 		}
-			
+
 	// 	}
 
 	// 	if($isValidSlug == 0)
 	// 	{
 	// 		header('Location: '.$referrer);
 	// 		exit;
-	// 	}		
+	// 	}
 	// }
 }

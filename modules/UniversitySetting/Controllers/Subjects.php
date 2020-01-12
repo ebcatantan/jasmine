@@ -24,10 +24,10 @@ class Subjects extends BaseController
     	$model = new SubjectsModel();
 
     	//kailangan ito para sa pagination
-       	$data['all_items'] = $model->getSubjectWithCondition(['status'=> 'a']);
+       	$data['all_items'] = $model->get(['status'=> 'a']);
        	$data['offset'] = $offset;
 
-        $data['subjects'] = $model->getSubjectWithFunction(['status'=> 'a', 'limit' => PERPAGE, 'offset' =>  $offset]);
+        $data['subjects'] = $model->get(['status'=> 'a'],[],[],[ 'limit' => PERPAGE, 'offset' =>  $offset]);
 
         $data['function_title'] = "Subject List";
         $data['viewName'] = 'Modules\UniversitySetting\Views\subjects\index';
@@ -41,7 +41,7 @@ class Subjects extends BaseController
 
 		$model = new SubjectsModel();
 
-		$data['subject'] = $model->getSubjectWithCondition(['id' => $id]);
+		$data['subject'] = $model->get(['id' => $id]);
 
 		$data['function_title'] = "Subject Details";
         $data['viewName'] = 'Modules\UniversitySetting\Views\subjects\subjectDetails';
@@ -69,18 +69,16 @@ class Subjects extends BaseController
 		    }
 		    else
 		    {
-		        if($model->addSubjects($_POST))
+		        if($model->add($_POST))
 		        {
-		        	$subject_id = $model->insertID();
-		        	$permissions_model->update_permitted_subject($subject_id, $_POST['function_id']);
 		        	$_SESSION['success'] = 'You have added a new record';
-					$this->session->markAsFlashdata('success');
+							$this->session->markAsFlashdata('success');
 		        	return redirect()->to(base_url('subjects'));
 		        }
 		        else
 		        {
 		        	$_SESSION['error'] = 'You have an error in adding a new record';
-					$this->session->markAsFlashdata('error');
+							$this->session->markAsFlashdata('error');
 		        	return redirect()->to(base_url('subjects'));
 		        }
 		    }
@@ -116,11 +114,10 @@ class Subjects extends BaseController
 		    }
 		    else
 		    {
-		    	if($model->editSubjects($_POST, $id))
+		    	if($model->edit($_POST, $id))
 		        {
-		        	$permissions_model->update_permitted_subject($id, $_POST['function_id'], $data['rec']['function_id']);
 		        	$_SESSION['success'] = 'You have updated a record';
-					$this->session->markAsFlashdata('success');
+							$this->session->markAsFlashdata('success');
 		        	return redirect()->to(base_url('subjects'));
 		        }
 		        else
@@ -144,7 +141,7 @@ class Subjects extends BaseController
     	$this->hasPermissionRedirect('delete-subject');
 
     	$model = new SubjectsModel();
-    	$model->deleteSubject($id);
+    	$model->erase($id);
     }
 
 }

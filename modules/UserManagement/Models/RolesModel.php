@@ -13,8 +13,8 @@ class RolesModel extends \CodeIgniter\Model
 	{
 		foreach($conditions as $field => $value)
 		{
-			$this->where($field, $value);
-		}
+      $this->where($field, $value);
+    }
 	    return $this->findAll();
 	}
 

@@ -13,9 +13,9 @@
     <thead class="thead-dark">
       <tr align="center">
         <th>#</th>
-        <th>Subject Code</th>
-        <th>Subject title</th>
-        <th>Description</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Email</th>
         <th>Action</th>
       </tr>
     </thead>

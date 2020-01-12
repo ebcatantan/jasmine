@@ -2,6 +2,8 @@
 namespace Modules\UniversitySetting\Controllers;
 
 use Modules\UniversitySetting\Models\CollegesModel;
+use Modules\UniversitySetting\Models\CoursesModel;
+use Modules\UniversitySetting\Models\DepartmentsModel;
 use Modules\UserManagement\Models\PermissionsModel;
 use App\Controllers\BaseController;
 
@@ -24,9 +26,9 @@ class Colleges extends BaseController
     	$model = new CollegesModel();
 
     	//kailangan ito para sa pagination
-       	$data['all_items'] = $model->get([],[],['status'=> 'a'],[]);
+       	$data['all_items'] = $model->get(['status'=> 'a']);
        	$data['offset'] = $offset;
-        $data['colleges'] = $model->get([],[],['status'=> 'a'],['limit' => PERPAGE, 'offset' =>  $offset]);
+        $data['colleges'] = $model->get(['status'=> 'a'],[],[],['limit' => PERPAGE, 'offset' =>  $offset]);
 
         $data['function_title'] = "Colleges List";
         $data['viewName'] = 'Modules\UniversitySetting\Views\colleges\index';
@@ -40,7 +42,7 @@ class Colleges extends BaseController
 
 		$model = new CollegesModel();
 
-		$data['college'] = $model->getCollegeWithCondition(['id' => $id]);
+		$data['college'] = $model->get(['id' => $id]);
 
 		$data['function_title'] = "College Details";
         $data['viewName'] = 'Modules\UniversitySetting\Views\colleges\collegeDetails';
@@ -70,16 +72,16 @@ class Colleges extends BaseController
 			}
 			else
 			{
-					if($model->addCollege($_POST))
+					if($model->add($_POST))
 					{
 						$_SESSION['success'] = 'You have added a new record';
-				$this->session->markAsFlashdata('success');
+						$this->session->markAsFlashdata('success');
 						return redirect()->to(base_url('colleges'));
 					}
 					else
 					{
 						$_SESSION['error'] = 'You have an error in adding a new record';
-				$this->session->markAsFlashdata('error');
+						$this->session->markAsFlashdata('error');
 						return redirect()->to(base_url('colleges'));
 					}
 			}
@@ -87,8 +89,8 @@ class Colleges extends BaseController
 		else
 		{
 			$data['function_title'] = "Adding College";
-				$data['viewName'] = 'Modules\UniversitySetting\Views\colleges\frmCollege';
-				echo view('App\Views\theme\index', $data);
+			$data['viewName'] = 'Modules\UniversitySetting\Views\colleges\frmCollege';
+			echo view('App\Views\theme\index', $data);
 		}
 	}
 
@@ -108,13 +110,13 @@ class Colleges extends BaseController
 	    	if (!$this->validate('college'))
 		    {
 		    	$data['errors'] = \Config\Services::validation()->getErrors();
-		        $data['function_title'] = "Edit College";
-		        $data['viewName'] = 'Modules\UniversitySetting\Views\colleges\frmCollege';
-		        echo view('App\Views\theme\index', $data);
+		      $data['function_title'] = "Edit College";
+		      $data['viewName'] = 'Modules\UniversitySetting\Views\colleges\frmCollege';
+		      echo view('App\Views\theme\index', $data);
 		    }
 		    else
 		    {
-		    	if($model->editCollege($_POST, $id))
+		    	if($model->edit($_POST, $id))
 		        {
 		        	// $permissions_model->update_permitted_role($id, $_POST['function_id'], $data['rec']['function_id']);
 		        	$_SESSION['success'] = 'You have updated a record';
@@ -132,8 +134,8 @@ class Colleges extends BaseController
     	else
     	{
 	    	$data['function_title'] = "Editing College";
-	        $data['viewName'] = 'Modules\UniversitySetting\Views\colleges\frmCollege';
-	        echo view('App\Views\theme\index', $data);
+	      $data['viewName'] = 'Modules\UniversitySetting\Views\colleges\frmCollege';
+	      echo view('App\Views\theme\index', $data);
     	}
     }
 
@@ -142,7 +144,11 @@ class Colleges extends BaseController
     	$this->hasPermissionRedirect('delete-role');
 
     	$model = new CollegesModel();
-    	$model->deleteCollege($id);
+    	$department_model = new DepartmentsModel();
+    	$courses_model = new CoursesModel();
+    	$department_model->erase($id, 'college_id');
+    	$courses_model->erase($id, 'college_id');
+    	$model->erase($id);
     }
 
 }

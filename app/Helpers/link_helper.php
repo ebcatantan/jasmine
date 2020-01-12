@@ -23,7 +23,7 @@ if (! function_exists('user_primary_links'))
 		{
 			if(hasPrimary($module['id'], $array_permissions))
 			{
-				echo '<li class="nav-item active">';
+				echo '<li class="nav-item active ml-1">';
 				echo '<div class="dropdown primary-menu-top">';
 				echo '<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="'.str_replace(' ', '', ucwords(name_on_system($module['id'], $_SESSION['appmodules'], 'modules'))).'" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
 				echo getIcon($module['id'], $_SESSION['appmodules'], false).' '. ucwords(name_on_system($module['id'], $_SESSION['appmodules'], 'modules'));

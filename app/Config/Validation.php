@@ -376,6 +376,36 @@ class Validation
 					]
 			],
 		];
+		public $department = [
+			'department_head_id' => [
+					'label'  => 'Department Head',
+					'rules'  => 'required',
+					'errors' => [
+							'required' => 'Department Head field is required.'
+					]
+				],
+			'department_code' => [
+					'label'  => 'Department Code',
+					'rules'  => 'required',
+					'errors' => [
+							'required' => 'Department Code field is required.'
+					]
+				],
+			'department_name' => [
+					'label'  => 'Department Name',
+					'rules'  => 'required',
+					'errors' => [
+							'required' => 'Department Name field is required.'
+					]
+				],
+			'description' => [
+					'label'  => 'Description',
+					'rules'  => 'required',
+					'errors' => [
+							'required' => 'Description field is required.'
+					]
+				],
+		];
 	//--------------------------------------------------------------------
 	// Rules
 	//--------------------------------------------------------------------

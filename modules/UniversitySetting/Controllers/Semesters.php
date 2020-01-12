@@ -24,29 +24,15 @@ class Semesters extends BaseController
     	$model = new SemestersModel();
 
     	//kailangan ito para sa pagination
-       	$data['all_items'] = $model->getSemesterWithCondition(['status'=> 'a']);
+       	$data['all_items'] = $model->get(['status'=> 'a']);
        	$data['offset'] = $offset;
 
-        $data['semesters'] = $model->getSemesterWithFunction(['status'=> 'a', 'limit' => PERPAGE, 'offset' =>  $offset]);
+        $data['semesters'] = $model->get(['status'=> 'a'],[],[],['limit' => PERPAGE, 'offset' =>  $offset]);
 
         $data['function_title'] = "Semester List";
         $data['viewName'] = 'Modules\UniversitySetting\Views\semesters\index';
         echo view('App\Views\theme\index', $data);
     }
-
-    public function show_semester($id)
-	{
-		$this->hasPermissionRedirect('show-semester-details');
-		$data['permissions'] = $this->permissions;
-
-		$model = new SemestersModel();
-
-		$data['semester'] = $model->getSemesterWithCondition(['id' => $id]);
-
-		$data['function_title'] = "Semester Details";
-        $data['viewName'] = 'Modules\UniversitySetting\Views\semester\semesterDetails';
-        echo view('App\Views\theme\index', $data);
-	}
 
     public function add_semester()
     {
@@ -70,16 +56,16 @@ class Semesters extends BaseController
 		    }
 		    else
 		    {
-		        if($model->addSemesters($_POST))
+		        if($model->add($_POST))
 		        {
 		        	$_SESSION['success'] = 'You have added a new record';
-					$this->session->markAsFlashdata('success');
+							$this->session->markAsFlashdata('success');
 		        	return redirect()->to(base_url('semesters'));
 		        }
 		        else
 		        {
 		        	$_SESSION['error'] = 'You have an error in adding a new record';
-					$this->session->markAsFlashdata('error');
+							$this->session->markAsFlashdata('error');
 		        	return redirect()->to(base_url('semesters'));
 		        }
 		    }
@@ -115,7 +101,7 @@ class Semesters extends BaseController
 		    }
 		    else
 		    {
-		    	if($model->editSemesters($_POST, $id))
+		    	if($model->edit($_POST, $id))
 		        {
 		        	$_SESSION['success'] = 'You have updated a record';
 							$this->session->markAsFlashdata('success');
@@ -143,7 +129,7 @@ class Semesters extends BaseController
     	$this->hasPermissionRedirect('delete-semester');
 
     	$model = new SemestersModel();
-    	$model->deleteSemesters($id);
+    	$model->erase($id);
     }
 
 }
