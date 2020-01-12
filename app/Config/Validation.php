@@ -46,7 +46,7 @@ class Validation
                 'required' => 'Node desciption field is required.'
             ]
         ],
-        
+
     ];
 
     public $role = [
@@ -73,7 +73,7 @@ class Validation
                 'required' => 'Landing Page field is required.'
             ]
         ],
-        
+
     ];
 
 	public $user = [
@@ -138,7 +138,7 @@ class Validation
                 'required' => 'Role field is required.'
             ]
         ],
-        
+
     ];
 
     public $user_edit = [
@@ -182,7 +182,7 @@ class Validation
                 'matches' => 'Password Retype field must match password.'
             ]
         ],
-        
+
         'birthdate' => [
             'label'  => 'Birthdate',
             'rules'  => 'required',
@@ -197,9 +197,94 @@ class Validation
                 'required' => 'Role field is required.'
             ]
         ],
-        
-    ];
 
+    ];
+		public $section = [
+				'curriculum_id' => [
+						'label'  => 'Curriculum',
+						'rules'  => 'required',
+						'errors' => [
+								'required' => 'Curriculum field is required.'
+						]
+				],
+				'course_id' => [
+						'label'  => 'Course',
+						'rules'  => 'required',
+						'errors' => [
+								'required' => 'Course field is required.'
+						]
+				],
+				'academic_year_instance_id' => [
+						'label'  => 'Academic Year Instance',
+						'rules'  => 'required',
+						'errors' => [
+								'required' => 'Academic Year Instance field is required.'
+						]
+				],
+				'section_code' => [
+						'label'  => 'Section Code',
+						'rules'  => 'required',
+						'errors' => [
+								'required' => 'Section Code field is required.'
+						]
+				],
+				'section_name' => [
+						'label'  => 'Section Name',
+						'rules'  => 'required',
+						'errors' => [
+								'required' => 'Section Name field is required.'
+						]
+				],
+				'shift' => [
+						'label'  => 'Shift',
+						'rules'  => 'required',
+						'errors' => [
+								'required' => 'Shift field is required.'
+						]
+				],
+				'max_no_student' => [
+						'label'  => 'Max no. of Student',
+						'rules'  => 'required',
+						'errors' => [
+								'required' => 'Max no. of Student field is required.'
+						]
+				],
+				'section_status' => [
+						'label'  => 'Section Status',
+						'rules'  => 'required',
+						'errors' => [
+								'required' => 'Section Status field is required.'
+						]
+				]
+		];
+
+		// public $section = [
+		// 		'curriculum_id' => [
+		// 				'label'  => 'Curriculum',
+		// 				'rules'  => 'required',
+		// 				'errors' => [
+		// 						'required' => 'Curriculum field is required.'
+		// 				]
+		// 		]
+		// ];
+		// public $section = [
+		// 		'course_id' => [
+		// 				'label'  => 'Course',
+		// 				'rules'  => 'required',
+		// 				'errors' => [
+		// 						'required' => 'Course field is required.'
+		// 				]
+		// 		]
+		// ];
+		// public $section = [
+		// 		'academic_year_instance_id' => [
+		// 				'label'  => 'Academic Year Instance',
+		// 				'rules'  => 'required',
+		// 				'errors' => [
+		// 						'required' => 'Academic Year Instance field is required.'
+		// 				]
+		// 		]
+		// ];
 	//--------------------------------------------------------------------
 	// Rules
 	//--------------------------------------------------------------------
