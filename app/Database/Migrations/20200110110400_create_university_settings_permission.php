@@ -136,7 +136,7 @@ class CreateSystemSettingsPermissions extends \CodeIgniter\Database\Migration {
                   'name_on_class' => 'index',
                   'page_title' => 'list of rooms',
                   'module_id' => '2',
-                  'link_icon' => '<i class="fas fa-open-door"></i>',
+                  'link_icon' => '<i class="fas fa-door-open"></i>',
                   'order' => 8,
                   'table_name' => 'rooms',
                   'func_action' => 'link',

@@ -3,6 +3,7 @@ namespace Modules\UserManagement\Controllers;
 
 use Modules\UserManagement\Models\UsersModel;
 use Modules\UserManagement\Models\RolesModel;
+use Modules\UniversitySetting\Models\DepartmentsModel;
 use App\Controllers\BaseController;
 
 class Users extends BaseController
@@ -161,6 +162,8 @@ class Users extends BaseController
     	$this->hasPermissionRedirect('delete-user');
 
     	$model = new UsersModel();
+    	$department_model = new DepartmentsModel();
+			$department_model->erase($id, 'department_head_id');
     	$model->deleteUser($id);
     }
 
