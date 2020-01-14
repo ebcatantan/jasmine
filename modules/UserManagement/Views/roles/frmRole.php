@@ -1,6 +1,6 @@
  <div class="row">
    <div class="col-md-10">
-      search here
+
    </div>
    <div class="col-md-2">
      <!--  <a href="<?= base_url() ?>node/add" class="btn btn-sm btn-primary btn-block float-right">Add Node</a> -->
@@ -35,7 +35,7 @@
               <?php endif; ?>
           </div>
         </div>
-      </div>  
+      </div>
       <div class="row">
         <div class="col-md-6 offset-md-3">
           <div class="form-group">
@@ -43,7 +43,7 @@
             <input type="hidden" value="1" name="function_id"> -->
             <label for="function_id">Role's Landing Page</label>
             <select name="function_id" class="form-control <?= $errors['function_id'] ? 'is-invalid':'is-valid' ?>">
-              <?php if(isset($rec['function_id'])): ?> 
+              <?php if(isset($rec['function_id'])): ?>
                 <option value="<?= $rec['function_id'] ?>"><?= ucwords(name_on_system($rec['function_id'], $permissions, 'permissions')) ?></option>
               <?php else: ?>
                 <option value="">Select Landing Page</option>
@@ -60,9 +60,9 @@
               <?php endif; ?>
           </div>
         </div>
-      </div>   
+      </div>
       <div class="row">
-        <div class="col-md-6 offset-md-3">   
+        <div class="col-md-6 offset-md-3">
           <button type="submit" class="btn btn-primary float-right">Submit</button>
         </div>
       </div>

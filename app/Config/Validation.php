@@ -46,7 +46,7 @@ class Validation
                 'required' => 'Node desciption field is required.'
             ]
         ],
-        
+
     ];
 
     public $role = [
@@ -73,7 +73,7 @@ class Validation
                 'required' => 'Landing Page field is required.'
             ]
         ],
-        
+
     ];
 
 	public $user = [
@@ -138,7 +138,7 @@ class Validation
                 'required' => 'Role field is required.'
             ]
         ],
-        
+
     ];
 
     public $user_edit = [
@@ -182,7 +182,7 @@ class Validation
                 'matches' => 'Password Retype field must match password.'
             ]
         ],
-        
+
         'birthdate' => [
             'label'  => 'Birthdate',
             'rules'  => 'required',
@@ -197,7 +197,138 @@ class Validation
                 'required' => 'Role field is required.'
             ]
         ],
-        
+
+    ];
+
+		public $admissions = [
+				'examinee_no' => [
+						'label'  => 'examinee_no',
+						'rules'  => 'required',
+						'errors' => [
+								'required' => 'This Field is Required.'
+						]
+				],
+
+				'last_name' => [
+						'label'  => 'last_name',
+						'rules'  => 'required',
+						'errors' => [
+								'required' => 'This Field is Required.'
+						]
+				],
+
+				'middle_name' => [
+						'label'  => 'middle_name',
+						'rules'  => 'required',
+						'errors' => [
+								'required' => 'This Field is Required.'
+						]
+					],
+				// 'extension_name' => [
+				// 		'label'  => 'extension_name',
+				// 		'rules'  => 'required',
+				// 		'errors' => [
+				// 				'required' => 'Landing Page field is required.'
+				// 		]
+				// 	],
+					'address' => [
+							'label'  => 'address',
+							'rules'  => 'required',
+							'errors' => [
+									'required' => 'This Field is Required.'
+							]
+						],
+						'barangay' => [
+								'label'  => 'barangay',
+								'rules'  => 'required',
+								'errors' => [
+										'required' => 'This Field is Required.'
+								]
+							],
+							'email' => [
+									'label'  => 'email',
+									'rules'  => 'required',
+									'errors' => [
+											'required' => 'This Field is Required.'
+									]
+							],
+							'contact_no' => [
+									'label'  => 'contact_no',
+									 'rules'  => 'required',
+									'errors' => [
+											'required' => 'This Field is Required'
+									]
+								],
+								'birth_date' => [
+										'label'  => 'birth_date',
+											'rules'  => 'required',
+										'errors' => [
+													'required' => 'This Field is Required'
+										]
+									],
+									'birth_place' => [
+											'label'  => 'birth_place',
+												'rules'  => 'required',
+											'errors' => [
+													'required' => 'This Field is Required'
+											]
+										],
+										'gender' => [
+												'label'  => 'gender',
+												'rules'  => 'required',
+												'errors' => [
+														'required' => 'This Field is Required'
+												]
+											],
+											'civil_status' => [
+							            'label'  => 'civil_status',
+							            'rules'  => 'required',
+							            'errors' => [
+							                'required' => 'This Field is Required'
+							            ]
+							          ],
+												// 'maiden_name' => [
+								        //     'label'  => 'maiden_name',
+								        //     'rules'  => 'required',
+								        //     'errors' => [
+								        //         'required' => 'This Field is Required'
+								        //     ]
+								        //   ],
+													'height' => [
+									            'label'  => 'height',
+									            'rules'  => 'required',
+									            'errors' => [
+									                'required' => 'Landing Page field is required.'
+									            ]
+									          ],
+									        'weight' => [
+									            'label'  => 'weight',
+									              'rules'  => 'required',
+									            'errors' => [
+									                  'required' => 'Landing Page field is required.'
+									            ]
+									          ],
+									        'religion' => [
+									            'label'  => 'religion',
+									            'rules'  => 'required',
+									            'errors' => [
+									                'required' => 'Landing Page field is required.'
+									            ]
+									          ],
+									        'last_school_attended' => [
+									            'label'  => 'last_school_attended',
+									            'rules'  => 'required',
+									            'errors' => [
+									                'required' => 'Landing Page field is required.'
+									            ]
+									          ],
+									        'last_school_address' => [
+									            'label'  => 'last_school_address',
+									            'rules'  => 'required',
+									            'errors' => [
+									                'required' => 'Landing Page field is required.'
+									            ]
+									          ],
     ];
 
 	//--------------------------------------------------------------------
