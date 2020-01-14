@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace Modules\UserManagement\Controllers;
 
 use Modules\UserManagement\Models\RolesModel;
@@ -18,7 +18,7 @@ class Roles extends BaseController
 	}
 
     public function index($offset = 0)
-    {	
+    {
     	$this->hasPermissionRedirect('list-role');
 
     	$model = new RolesModel();
@@ -55,7 +55,7 @@ class Roles extends BaseController
     	$permissions_model = new PermissionsModel();
 
     	$data['permissions'] = $this->permissions;
-	
+
     	helper(['form', 'url']);
     	$model = new RolesModel();
 
@@ -84,7 +84,7 @@ class Roles extends BaseController
 					$this->session->markAsFlashdata('error');
 		        	return redirect()->to(base_url('roles'));
 		        }
-		    }    		
+		    }
     	}
     	else
     	{
@@ -101,7 +101,7 @@ class Roles extends BaseController
     	helper(['form', 'url']);
     	$model = new RolesModel();
     	$data['rec'] = $model->find($id);
-    	
+
     	$permissions_model = new PermissionsModel();
 
     	$data['permissions'] = $this->permissions;
@@ -130,7 +130,7 @@ class Roles extends BaseController
 					$this->session->markAsFlashdata('error');
 		        	return redirect()->to( base_url('roles'));
 		        }
-		    }    		
+		    }
     	}
     	else
     	{
@@ -143,7 +143,7 @@ class Roles extends BaseController
     public function delete_role($id)
     {
     	$this->hasPermissionRedirect('delete-role');
-    	
+
     	$model = new RolesModel();
     	$model->deleteRole($id);
     }

@@ -1,7 +1,7 @@
 <?php
-namespace Modules\StudentManagement\Controllers;
+namespace Modules\Profiling\Controllers;
            //Module name            //Model name
-use Modules\StudentManagement\Models\StudentsModel;
+use Modules\Profiling\Models\StudentsModel;
 use Modules\UserManagement\Models\PermissionsModel;
 use App\Controllers\BaseController;
       //controller name
@@ -30,7 +30,7 @@ class Students extends BaseController
         $data['students'] = $model->getStudentWithFunction(['status'=> 'a', 'limit' => PERPAGE, 'offset' =>  $offset]);
 
         $data['function_title'] = "Student List";
-        $data['viewName'] = 'Modules\StudentManagement\Views\students\index';
+        $data['viewName'] = 'Modules\Profiling\Views\students\index';
         echo view('App\Views\theme\index', $data);
     }
 
@@ -41,10 +41,10 @@ class Students extends BaseController
 
 		$model = new StudentsModel();
 
-		$data['students'] = $model->getStudentWithCondition(['id' => $id]);
+		$data['student'] = $model->getStudentWithCondition(['id' => $id]);
 
 		$data['function_title'] = "Student Details";
-        $data['viewName'] = 'Modules\StudentManagement\Views\students\studentDetails';
+        $data['viewName'] = 'Modules\Profiling\Views\students\studentDetails';
         echo view('App\Views\theme\index', $data);
 	}
 
@@ -64,7 +64,7 @@ class Students extends BaseController
 		    {
 		    	$data['errors'] = \Config\Services::validation()->getErrors();
 		        $data['function_title'] = "Adding Student";
-		        $data['viewName'] = 'Modules\StudentManagement\Views\students\frmStudent';
+		        $data['viewName'] = 'Modules\Profiling\Views\students\frmStudent';
 		        echo view('App\Views\theme\index', $data);
 		    }
 		    else
@@ -87,7 +87,7 @@ class Students extends BaseController
     	{
 					//$model->addStudents([]); ito yung may kagagawan kung bakit kahit walang laman yung form nagkakaroon sa database
 	    		$data['function_title'] = "Adding Student";
-	        $data['viewName'] = 'Modules\StudentManagement\Views\students\frmStudent';
+	        $data['viewName'] = 'Modules\Profiling\Views\students\frmStudent';
 	        echo view('App\Views\theme\index', $data);
     	}
     }
@@ -109,7 +109,7 @@ class Students extends BaseController
 		    {
 		    	$data['errors'] = \Config\Services::validation()->getErrors();
 		        $data['function_title'] = "Edit of Student";
-		        $data['viewName'] = 'Modules\StudentManagement\Views\students\frmStudent';
+		        $data['viewName'] = 'Modules\Profiling\Views\students\frmStudent';
 		        echo view('App\Views\theme\index', $data);
 		    }
 		    else
@@ -132,7 +132,7 @@ class Students extends BaseController
     	else
     	{
 	    	$data['function_title'] = "Editing of Student";
-	        $data['viewName'] = 'Modules\StudentManagement\Views\students\frmStudent';
+	        $data['viewName'] = 'Modules\Profiling\Views\students\frmStudent';
 	        echo view('App\Views\theme\index', $data);
     	}
     }

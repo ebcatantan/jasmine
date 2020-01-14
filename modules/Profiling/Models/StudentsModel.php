@@ -1,5 +1,5 @@
 <?php
-namespace Modules\StudentManagement\Models;
+namespace Modules\Profiling\Models;
 
 use CodeIgniter\Model;
 

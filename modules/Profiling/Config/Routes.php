@@ -1,6 +1,6 @@
 <?php
 
-$routes->group('students', ['namespace' => 'Modules\StudentManagement\Controllers'], function($routes)
+$routes->group('students', ['namespace' => 'Modules\Profiling\Controllers'], function($routes)
 {
     $routes->get('/', 'Students::index');
     $routes->match(['get', 'post'], 'add', 'Students::add_student');
