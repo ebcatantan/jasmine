@@ -4,31 +4,11 @@ namespace App\Controllers;
 use Modules\UserManagement\Models\PermissionsModel;
 use Modules\UserManagement\Models\ModulesModel;
 
-/**
- * Class BaseController
- *
- * BaseController provides a convenient place for loading components
- * and performing functions that are needed by all your controllers.
- * Extend this class in any new controllers:
- *     class Home extends BaseController
- *
- * For security be sure to declare any new methods as protected or private.
- *
- * @package CodeIgniter
- */
-
 use CodeIgniter\Controller;
 
 class BaseController extends Controller
 {
 
-	/**
-	 * An array of helpers to be loaded automatically upon
-	 * class instantiation. These helpers will be available
-	 * to all other controllers that extend BaseController.
-	 *
-	 * @var array
-	 */
 	protected $helpers = [];
 
 	protected $permissions = [];
@@ -59,7 +39,7 @@ class BaseController extends Controller
 
 		$model_permission = new PermissionsModel();
 		$model_module = new ModulesModel();
-		
+
 		if(isset($_SESSION['user_logged_in']))
 		{
 			$this->permissions = $model_permission->like('allowed_roles', $_SESSION['rid'])->findAll();
@@ -71,10 +51,10 @@ class BaseController extends Controller
 		else
 		{
 			$str = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-    		if($str != base_url()) 
+    		if($str != base_url())
     		{
 				header('Location: '.base_url());
-				exit;				
+				exit;
     		}
 		}
 
@@ -106,31 +86,4 @@ class BaseController extends Controller
 		}
 	}
 
-
-	// protected function noPermissionRedirect($referrer, $functionSlug)
-	// {
-	
-	// 	$isValidSlug = 0;
-
-	// 	echo $referrer; 
-
-	// 	if(!empty($this->permissions))
-	// 	{
-	// 		foreach($this->permissions as $permission)
-	// 		{
-	// 			if(in_array($functionSlug, $permission))
-	// 			{
-	// 				$isValidSlug = 1;
-	// 				break;		
-	// 			}
-	// 		}
-			
-	// 	}
-
-	// 	if($isValidSlug == 0)
-	// 	{
-	// 		header('Location: '.$referrer);
-	// 		exit;
-	// 	}		
-	// }
 }

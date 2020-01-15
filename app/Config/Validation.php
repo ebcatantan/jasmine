@@ -46,7 +46,7 @@ class Validation
                 'required' => 'Node desciption field is required.'
             ]
         ],
-        
+
     ];
 
     public $role = [
@@ -73,8 +73,10 @@ class Validation
                 'required' => 'Landing Page field is required.'
             ]
         ],
-        
+
     ];
+
+
 
 	public $user = [
         'lastname' => [
@@ -138,7 +140,7 @@ class Validation
                 'required' => 'Role field is required.'
             ]
         ],
-        
+
     ];
 
     public $user_edit = [
@@ -182,7 +184,7 @@ class Validation
                 'matches' => 'Password Retype field must match password.'
             ]
         ],
-        
+
         'birthdate' => [
             'label'  => 'Birthdate',
             'rules'  => 'required',
@@ -197,7 +199,42 @@ class Validation
                 'required' => 'Role field is required.'
             ]
         ],
-        
+
+    ];
+
+		public $instance = [
+        'ay_start_year' => [
+            'label'  => 'Started Year',
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Started Year field is required.'
+            ]
+        ],
+
+        'ay_end_year' => [
+            'label'  => 'Ended Year',
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Ended Year field is required.'
+            ]
+        ],
+
+        'description' => [
+            'label'  => 'Description',
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Description field is required.'
+            ]
+        ],
+
+				'is_accepting_examinee' => [
+            'label'  => 'Accepting Examinee',
+            'rules'  => 'required',
+            'errors' => [
+            'required' => 'Accepting Examinee field is required.'
+            ]
+        ],
+
     ];
 
 	//--------------------------------------------------------------------
