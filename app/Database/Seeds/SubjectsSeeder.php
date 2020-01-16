@@ -42,7 +42,7 @@ class SubjectsSeeder extends \CodeIgniter\Database\Seeder
                     [
                         'function_name' => 'show_subject',
                         'function_description' => 'show subjects',
-                        'slugs' => 'show-',
+                        'slugs' => 'show-subject',
                         'name_on_class' => 'show_subject',
                         'page_title' => 'subject details',
                         'module_id' => '1',
@@ -100,7 +100,7 @@ class SubjectsSeeder extends \CodeIgniter\Database\Seeder
                         'func_action' => 'delete',
                         'func_type' => 3,
                         'allowed_roles' => '[1]',
-                        'status' => 'a',
+                        'status' => 'd',
                         'created_at' => date('Y-m-d H:i:s')
                     ],
 

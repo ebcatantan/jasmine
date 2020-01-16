@@ -42,11 +42,11 @@ class Migrate extends \CodeIgniter\Controller
     {
         // die("here");
         $seeder = \Config\Database::seeder();
-        //$seeder->call('RolesSeeder');
+        $seeder->call('RolesSeeder');
         //$seeder->call('UsersSeeder');
         //$seeder->call('ModuleSeeder');
         //$seeder->call('PermissionSeeder');
-        $seeder->call('SubjectsSeeder');
+        //$seeder->call('SubjectsSeeder');
 
     }
 }

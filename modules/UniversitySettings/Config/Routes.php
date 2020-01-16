@@ -1,5 +1,5 @@
 <?php
-  $routes->group('subjects', ['namespace' => 'Modules\SubjectsManagement\Controllers'], function($routes)
+  $routes->group('subjects', ['namespace' => 'Modules\UniversitySettings\Controllers'], function($routes)
 {
     $routes->get('/', 'Subjects::index');
     $routes->match(['get', 'post'], 'add', 'Subjects::add_subject');

@@ -1,7 +1,7 @@
 <?php
-namespace Modules\SubjectsManagement\Controllers;
+namespace Modules\UniversitySettings\Controllers;
 
-use Modules\SubjectsManagement\Models\SubjectsModel;
+use Modules\UniversitySettings\Models\SubjectsModel;
 use Modules\UserManagement\Models\PermissionsModel;
 use App\Controllers\BaseController;
 
@@ -30,7 +30,7 @@ class Subjects extends BaseController
         $data['subjects'] = $model->getSubjectWithFunction(['status'=> 'a', 'limit' => PERPAGE, 'offset' =>  $offset]);
 
         $data['function_title'] = "Subject List";
-        $data['viewName'] = 'Modules\SubjectsManagement\Views\subjects\index';
+        $data['viewName'] = 'Modules\UniversitySettings\Views\subjects\index';
         echo view('App\Views\theme\index', $data);
     }
 
@@ -44,7 +44,7 @@ class Subjects extends BaseController
 		$data['subject'] = $model->getSubjectWithCondition(['id' => $id]);
 
 		$data['function_title'] = "Subject Details";
-        $data['viewName'] = 'Modules\SubjectsManagement\Views\subjects\subjectDetails';
+        $data['viewName'] = 'Modules\UniversitySettings\Views\subjects\subjectDetails';
         echo view('App\Views\theme\index', $data);
 	}
     public function add_subject()
@@ -64,7 +64,7 @@ class Subjects extends BaseController
 		    {
 		    	$data['errors'] = \Config\Services::validation()->getErrors();
 		        $data['function_title'] = "Adding Subject";
-		        $data['viewName'] = 'Modules\SubjectsManagement\Views\subjects\frmSubject';
+		        $data['viewName'] = 'Modules\UniversitySettings\Views\subjects\frmSubject';
 		        echo view('App\Views\theme\index', $data);
 		    }
 		    else
@@ -89,7 +89,7 @@ class Subjects extends BaseController
     	{
 
 	    	$data['function_title'] = "Adding Subject";
-	        $data['viewName'] = 'Modules\SubjectsManagement\Views\subjects\frmSubject';
+	        $data['viewName'] = 'Modules\UniversitySettings\Views\subjects\frmSubject';
 	        echo view('App\Views\theme\index', $data);
     	}
     }
@@ -111,7 +111,7 @@ class Subjects extends BaseController
 		    {
 		    	$data['errors'] = \Config\Services::validation()->getErrors();
 		        $data['function_title'] = "Edit of Subject";
-		        $data['viewName'] = 'Modules\SubjectsManagement\Views\subjects\frmSubject';
+		        $data['viewName'] = 'Modules\UniversitySettings\Views\subjects\frmSubject';
 		        echo view('App\Views\theme\index', $data);
 		    }
 		    else
@@ -134,7 +134,7 @@ class Subjects extends BaseController
     	else
     	{
 	    	$data['function_title'] = "Editing of Subject";
-	        $data['viewName'] = 'Modules\SubjectsManagement\Views\subjects\frmSubject';
+	        $data['viewName'] = 'Modules\UniversitySettings\Views\subjects\frmSubject';
 	        echo view('App\Views\theme\index', $data);
     	}
     }

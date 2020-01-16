@@ -1,5 +1,5 @@
 <?php
-namespace Modules\SubjectsManagement\Models;
+namespace Modules\UniversitySettings\Models;
 
 use CodeIgniter\Model;
 
