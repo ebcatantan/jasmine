@@ -46,7 +46,7 @@ class Validation
                 'required' => 'Node desciption field is required.'
             ]
         ],
-        
+
     ];
 
     public $role = [
@@ -73,7 +73,7 @@ class Validation
                 'required' => 'Landing Page field is required.'
             ]
         ],
-        
+
     ];
 
 	public $user = [
@@ -138,7 +138,7 @@ class Validation
                 'required' => 'Role field is required.'
             ]
         ],
-        
+
     ];
 
     public $user_edit = [
@@ -182,7 +182,7 @@ class Validation
                 'matches' => 'Password Retype field must match password.'
             ]
         ],
-        
+
         'birthdate' => [
             'label'  => 'Birthdate',
             'rules'  => 'required',
@@ -197,7 +197,170 @@ class Validation
                 'required' => 'Role field is required.'
             ]
         ],
-        
+
+    ];
+
+		public $employee = [
+			//'user_id' => [
+		  //        'label'  => 'Roles',
+		  //         'rules'  => 'required',
+		  //          'errors' => [
+		  //              'required' => 'This field is required.'
+		  //          ]
+		  //      ],
+
+				//'citizen_image' => [
+        //        'rules' => 'uploaded[employee_image]',
+				//				'mime_in[citizen_image,image/jpg,image/jpeg,image/png]',
+        //        'max_size[employee_image,10000]',
+				//				'label' => 'Employee Image'
+        //    ],
+
+        'employee_no' => [
+            'label'  => 'Employee no',
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Employee no. field is required.'
+            ]
+        ],
+
+        'last_name' => [
+            'label'  => 'Last Name',
+            'rules'  => 'required|alpha_space',
+            'errors' => [
+                'required' => 'Last Name field is required.'
+            ]
+        ],
+
+        'first_name' => [
+            'label'  => 'First Name',
+            'rules'  => 'required|alpha_space',
+            'errors' => [
+                'required' => 'First Name field is required.'
+            ]
+        ],
+
+				'middlename' => [
+		            'label'  => 'Middle Name',
+		            'rules'  => 'alpha_space',
+		            'errors' => [
+										''
+		            ]
+		        ],
+
+		    'extension_name' => [
+		            'label'  => 'Extension Name',
+								'rules'  => 'alpha_space',
+		            'errors' => [
+										''
+		            ]
+		        ],
+
+				'address' => [
+						'label'  => 'Address',
+						'rules'  => 'required',
+						'errors' => [
+								'required' => 'Address field is required.'
+						]
+				],
+
+				'email' => [
+						'label'  => 'Email',
+						'rules'  => 'required|valid_email',
+						'errors' => [
+								'required' => 'email field is required.'
+						]
+				],
+
+				'contact_no' => [
+						'label'  => 'Contact No.',
+						'rules'  => 'required',
+						'errors' => [
+								'required' => 'Contact No. field is required.'
+						]
+				],
+
+				'birth_date' => [
+						'label'  => 'Birth Date',
+						'rules'  => 'required',
+						'errors' => [
+								'required' => 'Birth Date field is required.'
+						]
+				],
+
+				'birth_place' => [
+						'label'  => 'Birth Place',
+						'rules'  => 'required',
+						'errors' => [
+								'required' => 'Birth Place field is required.'
+						]
+				],
+
+				'gender' => [
+						'label'  => 'Gender',
+						'rules'  => 'required',
+						'errors' => [
+								'required' => 'Gender field is required.'
+						]
+				],
+
+				'civil_status' => [
+						'label'  => 'Civil Status',
+						'rules'  => 'required',
+						'errors' => [
+								'required' => 'Civil Status field is required.'
+						]
+				],
+
+
+				'height' => [
+						'label'  => 'Height',
+						'rules'  => 'required',
+						'errors' => [
+								'required' => 'Height field is required.'
+						]
+				],
+
+				'weight' => [
+						'label'  => 'Weight',
+						'rules'  => 'required',
+						'errors' => [
+								'required' => 'Weight field is required.'
+						]
+				],
+
+				'religion' => [
+						'label'  => 'Religion',
+						'rules'  => 'required',
+						'errors' => [
+								'required' => 'Religion field is required.'
+						]
+				],
+
+				'date_employed' => [
+						'label'  => 'Date Employed',
+						'rules'  => 'required',
+						'errors' => [
+								'required' => 'Date Employed field is required.'
+						]
+				],
+
+				'employment_status' => [
+						'label'  => 'Employment Status',
+						'rules'  => 'required',
+						'errors' => [
+								'required' => 'Employment Status field is required.'
+						]
+				],
+
+				'is_faculty' => [
+						'label'  => 'is faculty',
+						'rules'  => 'required',
+						'errors' => [
+								'required' => 'is faculty field is required.'
+						]
+				],
+
     ];
 
 	//--------------------------------------------------------------------

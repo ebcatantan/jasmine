@@ -2,9 +2,9 @@
    <div class="col-md-10">
       search here
    </div>
-   <div class="col-md-2"> 
+   <div class="col-md-2">
     <?php user_add_link('roles', $_SESSION['userPermmissions']) ?>
-   </div> 
+   </div>
  </div>
 <br>
   <?php $uri = new \CodeIgniter\HTTP\URI(current_url()); ?>
@@ -28,7 +28,7 @@
         <td><?= ucwords($role['description']) ?></td>
         <td><?= ucwords($role['function_name']) ?></td>
         <td class="text-center">
-          <?php 
+          <?php
             users_action('roles', $_SESSION['userPermmissions'], $role['id']);
           ?>
         </td>
@@ -37,7 +37,7 @@
     </tbody>
   </table>
  </div>
-<hr> 
+<hr>
 
 <div class="row">
   <div class="col-md-6 offset-md-6">
