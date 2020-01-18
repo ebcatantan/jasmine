@@ -4,14 +4,17 @@ use Modules\UserManagement\Models\UsersModel;
 
 class Security extends BaseController
 {
+
 	public function index()
 	{
+
 		$model = new UsersModel();
+	 //die("here");
 		if($_POST)
 		{
 			$loginOK = 0;
 			$users = $model->getUserWithCondition(['username' => $_POST['username']]);
-			
+
 			//checking of user existense
 			if(!empty($users))
 			{
@@ -24,7 +27,7 @@ class Security extends BaseController
 						$_SESSION['uname'] = $user['username'];
 						$_SESSION['rid'] = $user['role_id'];
 						$_SESSION['user_logged_in'] = 1;
-						break;						
+						break;
 					}
 				}
 			}

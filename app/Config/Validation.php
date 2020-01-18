@@ -232,6 +232,29 @@ class Validation
 						]
 				],
 		];
+		public $curriculumsubjectequivallence = [
+			'curriculum_subject_id' => [
+					'label'  => 'Curriculum Subject',
+					'rules'  => 'required',
+					'errors' => [
+							'required' => 'curriculum subject field is required.'
+					]
+				],
+					'subject_equivalence' => [
+							'label'  => 'Subject Equivalence',
+							'rules'  => 'required',
+							'errors' => [
+									'required' => 'subject equivalence field is required.'
+							]
+						],
+							'status' => [
+									'label'  => 'Status',
+									'rules'  => 'required',
+									'errors' => [
+											'required' => 'status field is required.'
+									]
+			],
+		];
 		public $semester = [
         'name' => [
             'label'  => 'Semester Name',
@@ -408,6 +431,8 @@ class Validation
 					]
 			],
 		];
+
+
 	//--------------------------------------------------------------------
 	// Rules
 	//--------------------------------------------------------------------
