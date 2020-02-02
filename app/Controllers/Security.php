@@ -4,13 +4,20 @@ use Modules\UserManagement\Models\UsersModel;
 
 class Security extends BaseController
 {
+
 	public function index()
 	{
+
 		$model = new UsersModel();
+	 //die("here");
 		if($_POST)
 		{
 			$loginOK = 0;
 			$users = $model->getUserWithCondition(['username' => $_POST['username']]);
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/meriel-jasmine
 			//checking of user existense
 			if(!empty($users))
 			{

@@ -1,6 +1,6 @@
 <?php namespace App\Database\Migrations;
 
-class CreateSystemSettingsPermissions extends \CodeIgniter\Database\Migration {
+class CreateUserManagementPermission extends \CodeIgniter\Database\Migration {
 
         private $table = 'permissions';
         public function up()

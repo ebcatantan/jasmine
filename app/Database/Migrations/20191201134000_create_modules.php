@@ -75,6 +75,14 @@ class CreateModules extends \CodeIgniter\Database\Migration {
                         'status' => 'a',
                         'created_at' => date('Y-m-d H:i:s')
                     ],
+                    [
+                        'module_name' => 'curriculum management and buildup',
+                        'module_description' => 'curriculum management and buildup',
+                        'module_icon' => '<i class="fas fa-book"></i>',
+                        'order' => 3,
+                        'status' => 'a',
+                        'created_at' => date('Y-m-d H:i:s')
+                    ],
                 ];
 
                 $db      = \Config\Database::connect();

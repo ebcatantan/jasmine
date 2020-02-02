@@ -1,10 +1,11 @@
 <?php namespace App\Database\Migrations;
 
-class CreateSystemSettingsPermissions extends \CodeIgniter\Database\Migration {
+class CreateUniversitySettingsPermission extends \CodeIgniter\Database\Migration {
 
         private $table = 'permissions';
         public function up()
         {
+
           $data = [
               // START OF BUILDING
               [

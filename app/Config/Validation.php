@@ -200,6 +200,61 @@ class Validation
         ],
 
     ];
+		public $curriculum = [
+        'academic_year_id' => [
+            'label'  => 'Academic Year',
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Academic year field is required.'
+            ]
+        ],
+
+        'course_id' => [
+            'label'  => 'Course',
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Course field is required.'
+            ]
+        ],
+
+        'curriculum_code' => [
+            'label'  => 'Curriculum Code',
+            'rules'  => 'required',
+            'errors' => [
+                'required' => 'Curriculum Code field is required.'
+            ]
+        ],
+				'title' => [
+						'label'  => 'Title',
+						'rules'  => 'required',
+						'errors' => [
+								'required' => 'Title field is required.'
+						]
+				],
+		];
+		public $curriculumsubjectequivallence = [
+			'curriculum_subject_id' => [
+					'label'  => 'Curriculum Subject',
+					'rules'  => 'required',
+					'errors' => [
+							'required' => 'curriculum subject field is required.'
+					]
+				],
+					'subject_equivalence' => [
+							'label'  => 'Subject Equivalence',
+							'rules'  => 'required',
+							'errors' => [
+									'required' => 'subject equivalence field is required.'
+							]
+						],
+							'status' => [
+									'label'  => 'Status',
+									'rules'  => 'required',
+									'errors' => [
+											'required' => 'status field is required.'
+									]
+			],
+		];
 		public $semester = [
         'name' => [
             'label'  => 'Semester Name',
@@ -376,6 +431,7 @@ class Validation
 					]
 			],
 		];
+<<<<<<< HEAD
 		public $department = [
 			'department_head_id' => [
 					'label'  => 'Department Head',
@@ -406,6 +462,10 @@ class Validation
 					]
 				],
 		];
+=======
+
+
+>>>>>>> origin/meriel-jasmine
 	//--------------------------------------------------------------------
 	// Rules
 	//--------------------------------------------------------------------
